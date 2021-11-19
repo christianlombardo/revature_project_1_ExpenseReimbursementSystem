@@ -14,15 +14,15 @@ public class AddEmployeeServlet extends HttpServlet {
 
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
 
-        request.getRequestDispatcher("header.html").include(request, response);
+       // request.getRequestDispatcher("header.html").include(request, response);
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        //int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
         Employee employee = new Employee();
-        employee.setId(id);
+        //employee.setId(id);
         employee.setName(name);
         employee.setUsername(username);
         employee.setPassword(password);
@@ -31,8 +31,8 @@ public class AddEmployeeServlet extends HttpServlet {
 
         out.println("<div class=\"container h-100\"><h1>Recorded saved successfully.</h1></div>");
 
-        request.getRequestDispatcher("addemployee.html").include(request, response);
-        request.getRequestDispatcher("footer.html").include(request, response);
+        //request.getRequestDispatcher("addemployee.html").include(request, response);
+        //request.getRequestDispatcher("footer.html").include(request, response);
     }
 
 }

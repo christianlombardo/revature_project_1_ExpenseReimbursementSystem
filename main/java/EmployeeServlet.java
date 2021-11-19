@@ -16,9 +16,19 @@ public class EmployeeServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        out.println("username = " + username + "password = " + password);
+        Employee employee = new Employee(username, password);
+
+        if (employeeDao.login(employee)) {
+            out.println("<h1>You have successfully logged in!</h1>");
+        } else {
+            out.println("<please check you username and password.");
+        }
+
+
+        //out.println("username = " + username + " password = " + password);
 
         // submit requests for reimbursement
+
 
         // view their past tickets and pending requests.
 

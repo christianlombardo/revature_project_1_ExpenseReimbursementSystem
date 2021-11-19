@@ -30,8 +30,21 @@ public class EmployeeDao implements DAO<Employee> {
 
 
     @Override
-    public void insert(Employee obj) {
+    public void insert(Employee employee) {
+        // open the session
+        Session session = factory.openSession();
 
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        // hibernate save to the database
+        session.save(employee);
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
     }
 
     @Override
@@ -63,11 +76,11 @@ public class EmployeeDao implements DAO<Employee> {
         // begin the transaction
         Transaction t = session.beginTransaction();
 
-        String hql = "FROM Employee WHERE username := username AND password := password";
+        String hql = "FROM Employee WHERE username=:currusername AND password=:currpassword";
         Query query = session.createQuery(hql);
-        query.setParameter("username", employee.getUsername());
-        query.setParameter("password", employee.getPassword());
-        Employee result = (Employee)query.list();
+        query.setParameter("currusername", employee.getUsername());
+        query.setParameter("currpassword", employee.getPassword());
+        Employee result = (Employee)query.uniqueResult();
 
         boolean flag = false;
         if(employee.getUsername().equals(result.getUsername()) && employee.getPassword().equals(employee.getPassword())) {

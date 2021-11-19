@@ -21,4 +21,14 @@
     <url-pattern>/EmployeeServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AddEmployeeServlet</servlet-name>
+    <servlet-class>AddEmployeeServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AddEmployeeServlet</servlet-name>
+    <url-pattern>/AddEmployeeServlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>

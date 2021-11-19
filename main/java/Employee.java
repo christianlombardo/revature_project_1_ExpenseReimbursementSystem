@@ -13,8 +13,14 @@ public class Employee {
     private String name;
     private String username;
     private String password;
+    private String gender;
 
     public Employee() {}
+
+    public Employee(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public Employee(int id, String name, String username, String password) {
         this.id = id;
@@ -53,6 +59,14 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
 }

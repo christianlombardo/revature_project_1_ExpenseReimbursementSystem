@@ -10,6 +10,17 @@ public class EmployeeServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
+
+        // employee login
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        out.println("username = " + username + "password = " + password);
+
+        // submit requests for reimbursement
+
+        // view their past tickets and pending requests.
 
 
     }

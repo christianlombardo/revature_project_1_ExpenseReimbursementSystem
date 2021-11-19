@@ -16,16 +16,16 @@ public class AddEmployeeServlet extends HttpServlet {
 
         request.getRequestDispatcher("header.html").include(request, response);
 
-        String fullname = request.getParameter("fullname");
-        String email = request.getParameter("email");
-        String country = request.getParameter("country");
-        String gender = request.getParameter("gender");
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
         Employee employee = new Employee();
-        employee.setName(fullname);
-        employee.setEmail(email);
-        employee.setCountry(country);
-        employee.setGender(gender);
+        employee.setId(id);
+        employee.setName(name);
+        employee.setUsername(username);
+        employee.setPassword(password);
 
         employeeDao.insert(employee);
 
@@ -33,7 +33,6 @@ public class AddEmployeeServlet extends HttpServlet {
 
         request.getRequestDispatcher("addemployee.html").include(request, response);
         request.getRequestDispatcher("footer.html").include(request, response);
-
     }
 
 }

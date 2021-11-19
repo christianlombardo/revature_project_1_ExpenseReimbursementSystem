@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,11 +13,11 @@ public class AddEmployeeServlet extends HttpServlet {
 
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
 
-<<<<<<< HEAD
+
         // request.getRequestDispatcher("header.html").include(request, response);
-=======
+
        // request.getRequestDispatcher("header.html").include(request, response);
->>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b
+
 
         //int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("fullname");
@@ -42,8 +38,4 @@ public class AddEmployeeServlet extends HttpServlet {
         //request.getRequestDispatcher("footer.html").include(request, response);
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b

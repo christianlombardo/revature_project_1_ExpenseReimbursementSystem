@@ -17,7 +17,7 @@ public class AddEmployeeServlet extends HttpServlet {
        // request.getRequestDispatcher("header.html").include(request, response);
 
         //int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
+        String name = request.getParameter("fullname");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 

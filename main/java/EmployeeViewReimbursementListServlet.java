@@ -21,19 +21,16 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
 
         List<Employee> results = employeeDao.readAll();
 
-        out.println("<div class=\"container\">" +
+         out.println("<div class=\"container\">" +
                 "<div class=\"row g-3\">" +
                 "<div class=\"col-md-12\">" +
                 "	<h1>User Profile</h1>" +
                 "</div>" +
                 "<div class=\"col-md-12\">" +
-                "<table class=\"table w-auto table-primary table-responsive\" style=\"font-family:Verdana;\">" +
+                "<table class=\"table w-auto table-dark table-responsive\" style=\"font-family:Arial;\">" +
                 "<tr>\n" +
-                "    <th>id</th>\n" +
                 "    <th>Name</th>\n" +
-                "    <th>Email</th>\n" +
-                "    <th>Country</th>\n" +
-                "    <th>Gender</th>\n" +
+                "    <th>username</th>\n" +
                 "    <th></th>\n" +
                 "  </tr>");
 
@@ -42,16 +39,19 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
             httpSession.setAttribute("id", employee.getId());
             out.println("<tr>\n" +
                     "    <td><a href=\"UpdateEmployeeServlet?userid=" + employee.getId() +
-                    "&name=" + employee.getName() + "&username=" + employee.getUsername() + "&password=" + employee.getPassword() +
+                    "&name=" + employee.getName() + "&username=" + employee.getUsername()+
                     "\" style=\"color: blue\">" + employee.getId() + "</a></td>\n" +
                     "    <td>" + employee.getName() + "</td>\n" +
                     "    <td>" + employee.getUsername() + "</td>\n" +
-                    "    <td>" + employee.getPassword() + "</td>\n" +
+                    "    <td>" + employee.getAmount() + "</td>\n"+
+                    "    <td>" + employee.getDate() + "</td>\n"+
+                    "    <td>" + employee.getTicketNumber() + "</td>\n"+
+                    "    <td>" + employee.getTicketStatus() + "</td>\n"+
                     "</tr>" );
         }
         out.println("</table>" +
-                        "</div>" +
-                        "</div></div>");
+                "</div>" +
+                "</div></div>");
 
         request.getRequestDispatcher("footer.html").include(request, response);
 

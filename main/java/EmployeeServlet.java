@@ -21,6 +21,7 @@ public class EmployeeServlet extends HttpServlet {
         if (employeeDao.login(employee)) {
             out.println("<h1>You have successfully logged in!</h1>");
         } else {
+<<<<<<< HEAD
             out.println("<please check you username and password.");
         }
 
@@ -35,3 +36,19 @@ public class EmployeeServlet extends HttpServlet {
 
     }
 }
+=======
+            out.println("<p>please check you username and password.</p>");
+        }
+
+        //out.println("username = " + username + " password = " + password);
+
+        // Go to Employee Page Home Page
+            // submit requests for reimbursement
+                // EmployeeSubmitReimbursementServlet
+            // view their pending requests.
+            // view their past tickets.
+
+
+    }
+}
+>>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b

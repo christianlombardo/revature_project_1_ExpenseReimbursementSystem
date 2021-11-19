@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +24,11 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
 
         List<Employee> results = employeeDao.readAll();
 
+<<<<<<< HEAD
         out.println("<div class=\"container\">" +
+=======
+         out.println("<div class=\"container\">" +
+>>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b
                 "<div class=\"row g-3\">" +
                 "<div class=\"col-md-12\">" +
                 "	<h1>User Profile</h1>" +
@@ -38,6 +46,7 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
             httpSession.setAttribute("id", employee.getId());
             out.println("<tr>\n" +
                     "    <td><a href=\"UpdateEmployeeServlet?userid=" + employee.getId() +
+<<<<<<< HEAD
                     "&name=" + employee.getName() + "&username=" + employee.getUsername() +
                     "\" style=\"color: blue\">" + employee.getId() + "</a></td>\n" +
                     "    <td>" + employee.getName() + "</td>\n" +
@@ -47,6 +56,17 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
                     //  "    <td>" + employee.getTicketNumber() + "</td>\n"+
                     //"    <td>" + employee.getTicketStatus() + "</td>\n"+
                     "</tr>");
+=======
+                    "&name=" + employee.getName() + "&username=" + employee.getUsername()+
+                    "\" style=\"color: blue\">" + employee.getId() + "</a></td>\n" +
+                    "    <td>" + employee.getName() + "</td>\n" +
+                    "    <td>" + employee.getUsername() + "</td>\n" +
+                    "    <td>" + employee.getAmount() + "</td>\n"+
+                    "    <td>" + employee.getDate() + "</td>\n"+
+                    "    <td>" + employee.getTicketNumber() + "</td>\n"+
+                    "    <td>" + employee.getTicketStatus() + "</td>\n"+
+                    "</tr>" );
+>>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b
         }
         out.println("</table>" +
                 "</div>" +
@@ -55,4 +75,8 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
         request.getRequestDispatcher("footer.html").include(request, response);
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b

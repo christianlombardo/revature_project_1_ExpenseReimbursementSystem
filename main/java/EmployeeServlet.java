@@ -21,16 +21,16 @@ public class EmployeeServlet extends HttpServlet {
         if (employeeDao.login(employee)) {
             out.println("<h1>You have successfully logged in!</h1>");
         } else {
-            out.println("<please check you username and password.");
+            out.println("<p>please check you username and password.</p>");
         }
-
 
         //out.println("username = " + username + " password = " + password);
 
-        // submit requests for reimbursement
-
-
-        // view their past tickets and pending requests.
+        // Go to Employee Page Home Page
+            // submit requests for reimbursement
+                // EmployeeSubmitReimbursementServlet
+            // view their pending requests.
+            // view their past tickets.
 
 
     }

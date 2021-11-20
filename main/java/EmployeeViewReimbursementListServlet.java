@@ -21,38 +21,33 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
         List<Employee> results = employeeDao.readAll();
 
 
-        out.println("<div class=\"container\">" +
-         "<div class=\"container\">" +
+     out.println(
+                "<style>body{background-color:grey}</style>" +
+                "<header>head</head>" +
+                "<div class=\"container\"" +
                 "<div class=\"row g-3\">" +
                 "<div class=\"col-md-12\">" +
                 "	<h1>User Profile</h1>" +
                 "</div>" +
                 "<div class=\"col-md-12\">" +
-                "<table class=\"table w-auto table-dark table-responsive\" style=\"font-family:Arial;\">" +
+                "<table class=\"table table-bordered table-dark table-responsive\" style=\"font-family:Arial;\">" +
                 "<tr>\n" +
+                "    <th>ID</th>\n" +
                 "    <th>Name</th>\n" +
-                "    <th>username</th>\n" +
-                "    <th></th>\n" +
+                "    <th>Username</th>\n" + 
+                        "<th>Amount</th>\n" +
+                        "    <th>Date</th>\n" +
+                        "    <th>Ticket Number</th>\n" +
+                        "    <th>Ticket Status</th>\n" +
                 "  </tr>");
 
         HttpSession httpSession = request.getSession();
         for (Employee employee : results) {
             httpSession.setAttribute("id", employee.getId());
             out.println("<tr>\n" +
-                    "    <td><a href=\"UpdateEmployeeServlet?userid=" + employee.getId() +
-                    "&name=" + employee.getName() + "&username=" + employee.getUsername() +
-                    "\" style=\"color: blue\">" + employee.getId() + "</a></td>\n" +
+                    "    <td>" +employee.getId()+ "</td>\n" +
                     "    <td>" + employee.getName() + "</td>\n" +
-                    "    <td>" + employee.getUsername() + "</td>\n" +
-                    //     "    <td>" + employee.getAmount() + "</td>\n"+
-                    //  "    <td>" + employee.getDate() + "</td>\n"+
-                    //  "    <td>" + employee.getTicketNumber() + "</td>\n"+
-                    //"    <td>" + employee.getTicketStatus() + "</td>\n"+
-                    "</tr>");
-                    "&name=" + employee.getName() + "&username=" + employee.getUsername()+
-                    "\" style=\"color: blue\">" + employee.getId() + "</a></td>\n" +
-                    "    <td>" + employee.getName() + "</td>\n" +
-                    "    <td>" + employee.getUsername() + "</td>\n" +
+                    "    <td>" + employee.getUsername() + "</td>\n" + 
                     "    <td>" + employee.getAmount() + "</td>\n"+
                     "    <td>" + employee.getDate() + "</td>\n"+
                     "    <td>" + employee.getTicketNumber() + "</td>\n"+
@@ -67,5 +62,6 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
         request.getRequestDispatcher("footer.html").include(request, response);
 
     }
+
 }
 

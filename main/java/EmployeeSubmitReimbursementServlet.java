@@ -28,6 +28,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         
  out.println("<section class='vh-100 gradient-custom'>"+
+         "<form action=\"EmployeeSubmitReimbursementServlet\" method=\"post\" > " +
     "<div class='container py-5 h-100'>"+
             "<div class='row d-flex justify-content-center align-items-center h-100'>"+
                 "<div class='col-12 col-md-9 col-lg-5 col-xl-5'>"+
@@ -59,20 +60,20 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
                                  "<input type='date' id='end' class='form-control form-control-lg' name='end' />"+
                                  "</div>"+
 
-                               "<button class='btn btn-outline-primary btn-lg px-10' type='submit'>Login</button>"+
+                               "<button class='btn btn-outline-primary btn-lg px-10' type='submit'>Submit</button>"+
 
                             "</div>"+
 
                            " <div> <p class='mb-0'>Financial Managers</p> </div>"+
 
-                         "</div> </div> </div> </div> </div> </section> </form>");
+                         "</div> </div> </div> </div> </div> </form> </section> ");
 
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
+        PrintWriter out = response.getWriter();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
@@ -98,9 +99,17 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         reimbursement.setAmount(amount);
         reimbursement.setDateStart(dateStart);
         reimbursement.setDateEnd(dateEnd);
+        reimbursement.setTicketStatus(ticketStatus);
         reimbursement.setEmployeeId(employee.getId());
 
          reimbursementDao.insert(reimbursement);
+
+         out.println("<h1>You have submitted a new reimbursement request!</h1>");
+
+         // add html/css/bootstrap layout
+
+
+
     }
 
 }

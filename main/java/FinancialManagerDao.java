@@ -27,12 +27,10 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
 
     }
 
-    @Override
     public boolean login(FinancialManager financialManager) {
         return false;
     }
 
-    @Override
     public void logout(FinancialManager financialManager) {
 
     }

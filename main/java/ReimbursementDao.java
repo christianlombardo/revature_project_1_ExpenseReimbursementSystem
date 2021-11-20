@@ -28,6 +28,7 @@ public class ReimbursementDao implements DAO<Reimbursement>{
 
     @Override
     public void insert(Reimbursement reimbursement) {
+        System.out.println(reimbursement.toString());
 
         // open the session
         Session session = sessionFactory.openSession();
@@ -35,14 +36,8 @@ public class ReimbursementDao implements DAO<Reimbursement>{
         // begin the transaction
         Transaction t = session.beginTransaction();
 
-        String hql = "INSERT Reimbursement (expenseDetail, amount, dateStart, dateEnd, ticketStatus, employeeId) VALUES (?, ?, ?, ?, ?)";
-        Query query = session.createQuery(hql);
-        query.setParameter("expenseDetail", reimbursement.getExpenseDetail());
-        query.setParameter("amount", reimbursement.getAmount());
-        query.setParameter("dateStart", reimbursement.getDateStart());
-        query.setParameter("dateEnd",  reimbursement.getDateEnd());
-        query.setParameter("ticketStatus", reimbursement.getTicketStatus());
-        query.setParameter("employeeId", reimbursement.getEmployeeId());
+        // hibernate save new reimbursement
+        session.save(reimbursement);
 
         // commit the transaction
         t.commit();

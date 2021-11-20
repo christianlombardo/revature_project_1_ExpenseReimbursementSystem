@@ -86,4 +86,9 @@ public class Reimbursement {
         this.employeeId = employeeId;
     }
 
+    @Override
+    public String toString() {
+        return "detail =" + this.getExpenseDetail() + ", getAmount= " + this.getAmount() + ", getDateStart" + this.getDateStart() + ", getDateEnd" + this.getDateEnd() + ", getEmployeeId=" + this.getEmployeeId();
+    }
+
 }

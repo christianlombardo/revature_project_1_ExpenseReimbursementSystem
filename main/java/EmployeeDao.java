@@ -118,4 +118,29 @@ public class EmployeeDao implements DAO<Employee> {
     public void logout(Employee employee) {
 
     }
+
+
+    public Employee getEmployeeByUsernamePassword(String username, String password) {
+        // open the session
+        Session session = factory.openSession();
+
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        String hql = "FROM Employee WHERE username=:currusername AND password=:currpassword";
+        Query query = session.createQuery(hql);
+        query.setParameter("currusername", username);
+        query.setParameter("currpassword", password);
+        Employee employee = (Employee)query.uniqueResult();
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
+
+        return employee;
+    }
+
+
 }

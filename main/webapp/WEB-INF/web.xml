@@ -1,16 +1,6 @@
 <!DOCTYPE web-app PUBLIC
-<<<<<<< HEAD
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         version = "2.5"
-         xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation = "http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-  <display-name>Archetype Created Web Application</display-name>
-=======
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -21,29 +11,34 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
->>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b
-  <servlet>
-    <servlet-name>EmployeeServlet</servlet-name>
-    <servlet-class>EmployeeServlet</servlet-class>
-  </servlet>
+      <servlet>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <servlet-class>EmployeeServlet</servlet-class>
+      </servlet>
 
-  <servlet-mapping>
-    <servlet-name>EmployeeServlet</servlet-name>
-    <url-pattern>/EmployeeServlet</url-pattern>
-  </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/EmployeeServlet</url-pattern>
+      </servlet-mapping>
 
-  <servlet>
-    <servlet-name>AddEmployeeServlet</servlet-name>
-    <servlet-class>AddEmployeeServlet</servlet-class>
-  </servlet>
+      <servlet>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <servlet-class>AddEmployeeServlet</servlet-class>
+      </servlet>
 
-  <servlet-mapping>
-    <servlet-name>AddEmployeeServlet</servlet-name>
-    <url-pattern>/AddEmployeeServlet</url-pattern>
-  </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <url-pattern>/AddEmployeeServlet</url-pattern>
+      </servlet-mapping>
 
-<<<<<<< HEAD
+      <servlet>
+            <servlet-name>EmployeeSubmitReimbursementServlet</servlet-name>
+            <servlet-class>EmployeeSubmitReimbursementServlet</servlet-class>
+      </servlet>
+
+      <servlet-mapping>
+        <servlet-name>EmployeeSubmitReimbursementServlet</servlet-name>
+        <url-pattern>/EmployeeSubmitReimbursementServlet</url-pattern>
+      </servlet-mapping>
+
 </web-app>
-=======
-</web-app>
->>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b

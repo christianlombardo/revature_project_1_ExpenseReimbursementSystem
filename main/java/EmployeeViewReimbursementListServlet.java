@@ -48,10 +48,10 @@ public class EmployeeViewReimbursementListServlet extends HttpServlet {
                     "    <td>" +employee.getId()+ "</td>\n" +
                     "    <td>" + employee.getName() + "</td>\n" +
                     "    <td>" + employee.getUsername() + "</td>\n" + 
-                    "    <td>" + employee.getAmount() + "</td>\n"+
-                    "    <td>" + employee.getDate() + "</td>\n"+
-                    "    <td>" + employee.getTicketNumber() + "</td>\n"+
-                    "    <td>" + employee.getTicketStatus() + "</td>\n"+
+//                    "    <td>" + employee.getAmount() + "</td>\n"+
+//                    "    <td>" + employee.getDate() + "</td>\n"+
+//                    "    <td>" + employee.getTicketNumber() + "</td>\n"+
+//                    "    <td>" + employee.getTicketStatus() + "</td>\n"+
                     "</tr>" );
 
         }

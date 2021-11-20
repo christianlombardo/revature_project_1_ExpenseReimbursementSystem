@@ -37,8 +37,4 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
 
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b

@@ -26,7 +26,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         // Expense Detail(Text Field)
         // Amount
         // Date Start
-        // DAte End
+        // Date End
         // TicketNumber() // databse id
         // TicketStatus() pending (default)
 

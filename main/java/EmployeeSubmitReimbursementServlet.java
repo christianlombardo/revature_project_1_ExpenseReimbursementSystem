@@ -22,7 +22,20 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         // submit request to add in the reimbursement table in the database.
 
-        //
+
+        // Expense Detail(Text Field)
+        // Amount
+        // Date Start
+        // DAte End
+        // TicketNumber() // databse id
+        // TicketStatus() pending (default)
+
+
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+
+        // Reimbursement resimb=- new Reinburse();
 
     }
 

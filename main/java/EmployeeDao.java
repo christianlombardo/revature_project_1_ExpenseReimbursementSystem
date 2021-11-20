@@ -54,7 +54,25 @@ public class EmployeeDao implements DAO<Employee> {
 
     @Override
     public List<Employee> readAll() {
-        return null;
+
+        // open the session
+        Session session = factory.openSession();
+
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        String hql = "FROM Employee";
+        Query query = session.createQuery(hql);
+        List<Employee> results = query.list();
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
+
+        return results;
+
     }
 
     @Override
@@ -100,8 +118,4 @@ public class EmployeeDao implements DAO<Employee> {
     public void logout(Employee employee) {
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 71d757a075768798ef5e3b259aaa1eddfb6d206b

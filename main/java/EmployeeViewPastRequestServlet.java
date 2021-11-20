@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class EmployeeViewReimbursementListServlet extends HttpServlet {
+public class EmployeeViewPastRequestServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 

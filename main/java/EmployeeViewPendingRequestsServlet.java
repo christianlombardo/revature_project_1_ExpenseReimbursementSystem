@@ -1,11 +1,16 @@
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class EmployeeViewPendingRequestsServlet extends HttpServlet {
 
-    public void doPost (HttpServletRequest request, HttpServletResponse reponse) {
-        
+    public void doPost (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
          out.println(
                 "<ul class=\"nav nav-tabs\"navbar-fixed-top sticky>\n" +
                         "  <li class=\"nav-item\">\n" +
@@ -37,6 +42,8 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
                 "  </tr>");
 
         HttpSession httpSession = request.getSession();
+
+
         for (Employee employees : results) {
             httpSession.setAttribute("id", employees.getId());
             out.println("<tr>\n" +

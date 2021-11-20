@@ -26,8 +26,7 @@ public class EmployeeServlet extends HttpServlet {
             employee = employeeDao.getEmployeeByUsernamePassword(username, password);
             HttpSession session = request.getSession();
             session.setAttribute("employee", employee);
-            out.println("<a href='EmployeeSubmitReimbursementServlet'>Request for Reimbursement</a>");
-
+            out.println("<a href='EmployeeSubmitReimbursementServlet'>Request for Reimbursement</a>" +
 
             "<ul class=\"nav nav-tabs\"navbar-fixed-top sticky>\n" +
                 "  <li class=\"nav-item\">\n" +
@@ -55,7 +54,6 @@ public class EmployeeServlet extends HttpServlet {
                 "<h2 class='fw-bold mb-2 text'>Employee Reimbursement</h2>"+
                 "<p class='text-white-50 mb-5'></p>"+
 
-
                 "</div>"+
 
                 " <div> <p class='mb-0'>Financial Managers</p> </div>"+
@@ -63,7 +61,6 @@ public class EmployeeServlet extends HttpServlet {
                 "</div> </div> </div> </div> </div> </section> </form>");
 
 
-    }
             // view their past tickets and pending requests.
 
 

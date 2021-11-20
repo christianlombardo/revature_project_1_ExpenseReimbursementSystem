@@ -4,15 +4,13 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class EmployeeDao implements DAO<Employee> {
 
-    private static EmployeeDao daoEmployee;
+    //private static EmployeeDao daoEmployee;
     Configuration cfg;
-    SessionFactory factory;
+    SessionFactory sessionFactory;
 
     EmployeeDao() {
 
@@ -23,7 +21,7 @@ public class EmployeeDao implements DAO<Employee> {
         cfg.configure("hibernate.cfg.xml");
 
         // create the factory
-        factory = cfg.buildSessionFactory();
+        sessionFactory = cfg.buildSessionFactory();
 
 
     }
@@ -32,7 +30,7 @@ public class EmployeeDao implements DAO<Employee> {
     @Override
     public void insert(Employee employee) {
         // open the session
-        Session session = factory.openSession();
+        Session session = sessionFactory.openSession();
 
         // begin the transaction
         Transaction t = session.beginTransaction();
@@ -56,7 +54,7 @@ public class EmployeeDao implements DAO<Employee> {
     public List<Employee> readAll() {
 
         // open the session
-        Session session = factory.openSession();
+        Session session = sessionFactory.openSession();
 
         // begin the transaction
         Transaction t = session.beginTransaction();
@@ -85,11 +83,10 @@ public class EmployeeDao implements DAO<Employee> {
 
     }
 
-    @Override
     public boolean login(Employee employee) {
 
         // open the session
-        Session session = factory.openSession();
+        Session session = sessionFactory.openSession();
 
         // begin the transaction
         Transaction t = session.beginTransaction();
@@ -114,15 +111,14 @@ public class EmployeeDao implements DAO<Employee> {
         return flag;
     }
 
-    @Override
+
     public void logout(Employee employee) {
 
     }
 
-
     public Employee getEmployeeByUsernamePassword(String username, String password) {
         // open the session
-        Session session = factory.openSession();
+        Session session = sessionFactory.openSession();
 
         // begin the transaction
         Transaction t = session.beginTransaction();

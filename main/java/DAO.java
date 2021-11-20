@@ -12,8 +12,5 @@ public interface DAO<T> {
 
     void delete(T obj);
 
-    boolean login(T obj);
-
-    void logout(T obj);
 
 }

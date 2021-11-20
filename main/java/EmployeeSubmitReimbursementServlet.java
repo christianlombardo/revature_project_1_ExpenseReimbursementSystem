@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
@@ -23,12 +26,6 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         // submit request to add in the reimbursement table in the database.
 
 
-        // Expense Detail(Text Field)
-        // Amount
-        // Date Start
-        // Date End
-        // TicketNumber() // databse id
-        // TicketStatus() pending (default)
         
  out.println("<section class='vh-100 gradient-custom'>"+
     "<div class='container py-5 h-100'>"+
@@ -72,10 +69,38 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        // Reimbursement resimb=- new Reinburse();
+        response.setContentType("text/html");
+        PrintWriter pw = response.getWriter();
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+
+        ReimbursementDao reimbursementDao = ReimbursementDaoFactory.getEmployeeDao();
+
+        String expenseDetail = request.getParameter("detail");
+        double amount = Double.parseDouble(request.getParameter("amount"));
+        Date dateStart = new Date();
+        Date dateEnd = new Date();
+        try {
+            dateStart = dateFormat.parse(request.getParameter("start"));
+            dateEnd = dateFormat.parse(request.getParameter("end"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        HttpSession httpSession = request.getSession();
+        Employee employee = (Employee)httpSession.getAttribute("employee");
+
+        Reimbursement.TicketStatus ticketStatus = Reimbursement.TicketStatus.PENDING;
+        Reimbursement reimbursement = new Reimbursement();
+        reimbursement.setExpenseDetail(expenseDetail);
+        reimbursement.setAmount(amount);
+        reimbursement.setDateStart(dateStart);
+        reimbursement.setDateEnd(dateEnd);
+        reimbursement.setEmployeeId(employee.getId());
+
+         reimbursementDao.insert(reimbursement);
     }
 
 }

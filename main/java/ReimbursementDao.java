@@ -49,6 +49,7 @@ public class ReimbursementDao implements DAO<Reimbursement>{
 
     @Override
     public Reimbursement readById(Reimbursement obj) {
+
         return null;
     }
 
@@ -65,6 +66,30 @@ public class ReimbursementDao implements DAO<Reimbursement>{
     @Override
     public void delete(Reimbursement obj) {
 
+    }
+
+    public List<Reimbursement> readByEmployeeTicketStatus(int employeeId, Reimbursement.TicketStatus ticketStatus) {
+
+        // open the session
+        Session session = sessionFactory.openSession();
+
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        String hql = "FROM Reimbursement WHERE ticketStatus=:currticketStatus AND employeeId=curremployeeId";
+        Query query = session.createQuery(hql);
+        query.setParameter("currticketStatus", ticketStatus);
+        query.setParameter("curremployeeId", employeeId);
+
+        List<Reimbursement> results = query.list();
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
+
+        return results;
     }
 
 }

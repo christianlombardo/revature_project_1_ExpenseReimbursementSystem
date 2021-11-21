@@ -36,7 +36,7 @@ public class EmployeeServlet extends HttpServlet {
                 "    <a class=\"nav-link\" href=\"#\">Submit</a>\n" +
                 "  </li>\n" +
                 "  <li class=\"nav-item\">\n" +
-                "    <a class=\"nav-link\" href=\"#\">View all current reimbursements</a>\n" +
+                "    <a class=\"nav-link\" href=\"EmployeeViewPendingRequestsServlet\">View all current reimbursements</a>\n" +
                 "  </li>\n" +
                 "  <li class=\"nav-item\">\n" +
                 "    <a class=\"nav-link\" href=\"#\">View all past reimbursements</a>\n" +

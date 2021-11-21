@@ -93,7 +93,7 @@ public class ReimbursementDao implements DAO<Reimbursement>{
         return results;
     }
 
-    public List<Reimbursement> readByEmployeeTicketStatuses(int employeeId, int[] ticketStatus) {
+    public List<Reimbursement> readByEmployeeTicketStatuses(int employeeId, List<Integer> ticketStatus) {
 
         // open the session
         Session session = sessionFactory.openSession();
@@ -101,9 +101,9 @@ public class ReimbursementDao implements DAO<Reimbursement>{
         // begin the transaction
         Transaction t = session.beginTransaction();
 
-        String hql = "FROM Reimbursement WHERE ticketStatus IN (:currticketStatus) AND employeeId=:curremployeeId";
-        //String hql = "FROM Reimbursement WHERE ticketStatus=" + ticketStatus + " AND employeeId=" + employeeId;
+        String hql = "FROM Reimbursement WHERE ticketStatus IN :currticketStatus AND employeeId=:curremployeeId";
         Query query = session.createQuery(hql);
+
         query.setParameter("currticketStatus", ticketStatus);
         query.setParameter("curremployeeId", employeeId);
 

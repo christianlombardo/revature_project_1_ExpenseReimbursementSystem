@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeViewPastRequestServlet extends HttpServlet {
@@ -36,8 +37,13 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        List<Reimbursement> results = daoReimbursement.readAll();
         Employee employee = (Employee)httpSession.getAttribute("employee");
+
+        List<Integer> statuses = new ArrayList<>();
+        statuses.add(Reimbursement.hmap.get("APPROVED"));
+        statuses.add(Reimbursement.hmap.get("DENIED"));
+
+        List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatuses(employee.getId(), statuses);
 
         for (Reimbursement reimbursement : results) {
             httpSession.setAttribute("id", reimbursement.getTicketNumber());

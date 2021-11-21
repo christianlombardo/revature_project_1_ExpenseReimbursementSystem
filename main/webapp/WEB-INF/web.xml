@@ -51,4 +51,15 @@
         <url-pattern>/EmployeeViewPendingRequestsServlet</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>EmployeeViewPastRequestServlet</servlet-name>
+        <servlet-class>EmployeeViewPastRequestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EmployeeViewPastRequestServlet</servlet-name>
+        <url-pattern>/EmployeeViewPastRequestServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

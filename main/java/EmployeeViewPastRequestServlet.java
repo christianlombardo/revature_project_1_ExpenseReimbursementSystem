@@ -16,7 +16,7 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
 
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
 
-        request.getRequestDispatcher("header.html").include(request, response);
+       request.getRequestDispatcher("test.html").include(request, response);
 
         List<Employee> results = employeeDao.readAll();
 

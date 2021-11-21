@@ -1,18 +1,20 @@
     Joseph
         • DONE. Links for EmployeeServlet.java
         • DONE. EmployeeSubmitReimbursementServlet.java doGet form
+        • DONE. doPost EmployeeSubmitReimbursementServlet.java html/css/bootstrap
+        • DONE. Employee Navbar html file.
+        • EmployeeSubmitReimbursementServlet
+        • EmployeeViewPastRequestServlet
         • FinancialManagerServlet
-        • doPost EmployeeSubmitReimbursementServlet.java html/css/bootstrap
-        • Employee Navbar html file.
 
 
     Christian
         • DONE. FinancialManager Class
         • DONE. Create Reimbursement  class
-        • ReimbursementDao
+        • DONE. ReimbursementDao
+        • DONE. EmployeeViewPendingRequestServlet
         • FinancialManagerDao
         • FinancialManagerServlet
-        • EmployeeViewPendingRequestServlet
         • EmployeeViewPastRequestServlet
 
 NOTES:

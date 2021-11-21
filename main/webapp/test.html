@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+        background-color:grey;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
-<div class="container">
-    <div class="row g-3">
-    <div class="col-md-12">
-        	<h1>User Profile</h1>
-        </div>
-    <div class="col-md-12\">
-        <table class=table w-auto table-dark table-responsive\ style="font-family:Arial;">
-        <tr>
-                <th>id</th>
-                <th>Name</th>
-               <th>Email</th>
-                <th>Country</th>
-               <th>Gender</th>
-              <th></th>
-              </tr>
 
-      <tr>
-          <td><a href=\"UpdateEmployeeServlet?userid=""> </a><td>
-          <td> a</td>
-          <td>b</td>
-          <td>c</td>
-            </tr>
-
-        </table>
+<form action="EmployeeSubmitReimbursementServlet" method = "get">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="nav nav-tabs navbar-fixed-top sticky">
+      <li class="nav-item\">
+       <a class="nav-link active aria-current=page href=test.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="EmployeeSubmitReimbursementServlet">Submit Reimbursement</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="EmployeeViewPendingRequestsServlet">View all pending reimbursements</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="EmployeeViewPastRequestServlet">View all past reimbursements</a>
+      </li>
+    </ul>
         </div>
     </div></div>
+    </nav>
+</form>
 </body>
 </html>

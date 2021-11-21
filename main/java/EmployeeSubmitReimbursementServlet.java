@@ -25,7 +25,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         // submit request to add in the reimbursement table in the database.
 
-
+ request.getRequestDispatcher("test.html").include(request, response);
         
  out.println("<section class='vh-100 gradient-custom'>"+
          "<form action=\"EmployeeSubmitReimbursementServlet\" method=\"post\" > " +

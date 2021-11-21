@@ -3,11 +3,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.HashMap;
 
 @Entity
 public class Reimbursement {
 
-    public enum TicketStatus {PENDING, APPROVED, DENIED} // pending (default)
+    //public enum TicketStatus {PENDING, APPROVED, DENIED} // pending (default)
+    public static HashMap<String, Integer> hmap = new HashMap(3);
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,18 +18,21 @@ public class Reimbursement {
     private double amount;
     private Date dateStart;
     private Date dateEnd;
-    private TicketStatus ticketStatus;
+    private Integer ticketStatus;
     private int employeeId;
 
-    Reimbursement() {}
+    Reimbursement() {
+        hmapTicketStatus();
+    }
 
-    Reimbursement(int ticketNumber, String expenseDetail, double amount, Date dateStart, Date dateEnd, TicketStatus ticketStatus) {
+    Reimbursement(int ticketNumber, String expenseDetail, double amount, Date dateStart, Date dateEnd, Integer ticketStatus) {
         this.ticketNumber = ticketNumber;
         this.expenseDetail = expenseDetail;
         this.amount = amount;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.ticketStatus = ticketStatus;
+        hmapTicketStatus();
     }
 
     public int getTicketNumber() {
@@ -70,11 +75,11 @@ public class Reimbursement {
         this.dateEnd = dateEnd;
     }
 
-    public TicketStatus getTicketStatus() {
+    public Integer getTicketStatus() {
         return ticketStatus;
     }
 
-    public void setTicketStatus(TicketStatus ticketStatus) {
+    public void setTicketStatus(Integer ticketStatus) {
         this.ticketStatus = ticketStatus;
     }
 
@@ -89,6 +94,12 @@ public class Reimbursement {
     @Override
     public String toString() {
         return "detail =" + this.getExpenseDetail() + ", getAmount= " + this.getAmount() + ", getDateStart" + this.getDateStart() + ", getDateEnd" + this.getDateEnd() + ", getEmployeeId=" + this.getEmployeeId();
+    }
+
+    public static void hmapTicketStatus() {
+        hmap.put("PENDING", 0);
+        hmap.put("APPROVED", 1);
+        hmap.put("DENIED", 2);
     }
 
 }

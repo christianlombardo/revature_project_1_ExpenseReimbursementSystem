@@ -93,7 +93,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         HttpSession httpSession = request.getSession();
         Employee employee = (Employee)httpSession.getAttribute("employee");
 
-        Reimbursement.TicketStatus ticketStatus = Reimbursement.TicketStatus.PENDING;
+        Integer ticketStatus = Reimbursement.hmap.get(("PENDING"));
         Reimbursement reimbursement = new Reimbursement();
         reimbursement.setExpenseDetail(expenseDetail);
         reimbursement.setAmount(amount);

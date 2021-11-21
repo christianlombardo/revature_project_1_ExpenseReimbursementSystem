@@ -16,6 +16,11 @@ public class FinancialManager {
 
     public FinancialManager() {}
 
+    public FinancialManager(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public FinancialManager(int id, String name, String username, String password) {
         this.id = id;
         this.name = name;

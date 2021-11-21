@@ -23,7 +23,6 @@ public class EmployeeDao implements DAO<Employee> {
         // create the factory
         sessionFactory = cfg.buildSessionFactory();
 
-
     }
 
 

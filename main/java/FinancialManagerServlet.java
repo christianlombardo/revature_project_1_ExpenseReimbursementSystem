@@ -67,11 +67,46 @@ public class FinancialManagerServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        FinancialManagerDao financialManagerDao = FinancialManagerDaoFactory.getDaoFinancialManager();
+        ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getReimbursementDao();
+
+        // FinancialManager login
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        FinancialManager financialManager = new FinancialManager(username, password);
+        //out.println("username = " + financialManager.getUsername() + ", password =" + financialManager.getPassword());
+
+        if (financialManagerDao.login(financialManager)) {
+            out.println("<h1>You have successfully logged in!</h1>");
+
+            // display all Pending requests
+            List<Reimbursement> results = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
+
+            for (Reimbursement reimbursement : results) {
+                out.println( reimbursement.getTicketNumber()+ " \n" +
+                        "  " + reimbursement.getExpenseDetail() + " \n" +
+                        "  " + reimbursement.getAmount()+ "\n" +
+                        "  " + reimbursement.getDateStart() + "\n" +
+                        "  " + reimbursement.getDateEnd() + "\n" +
+                        "  " + reimbursement.getTicketStatus() );
+                out.println();
+            }
+
+        }
+        else {
+            out.println("<h1>please check you username and password.</h1>");
+        }
+
+
         // get all Employees out in a LIST
         // get all Reimbursement put in a LIST
         //
         List<Employee> employees = new ArrayList<>();
         List<Reimbursement> reimbursements = new ArrayList<>();
+
+        //Employee employee = (Employee)httpSession.getAttribute("employee");
+
 
 
         for (int i=0 ; i<employees.size() ; i++) {

@@ -13,9 +13,10 @@
         • DONE. Create Reimbursement  class
         • DONE. ReimbursementDao
         • DONE. EmployeeViewPendingRequestServlet
-        • FinancialManagerDao
-        • FinancialManagerServlet
-        • EmployeeViewPastRequestServlet
+        • DONE. EmployeeViewPastRequestServlet
+        • DONE. FinancialManagerDao
+        • DONE. FinancialManagerServlet
+
 
 NOTES:
     Finance managers can log in and view all reimbursement requests and past history for all employees in the company

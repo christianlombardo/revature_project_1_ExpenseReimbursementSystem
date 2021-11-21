@@ -62,4 +62,16 @@
         <url-pattern>/EmployeeViewPastRequestServlet</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>FinancialManagerServlet</servlet-name>
+        <servlet-class>FinancialManagerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FinancialManagerServlet</servlet-name>
+        <url-pattern>/FinancialManagerServlet</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

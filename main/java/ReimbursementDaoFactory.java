@@ -6,7 +6,7 @@ public class ReimbursementDaoFactory {
 
     }
 
-    public static ReimbursementDao getEmployeeDao() {
+    public static ReimbursementDao getReimbursementDao() {
         if (daoReimbursment == null) {
             daoReimbursment = new ReimbursementDao();
         }

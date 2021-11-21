@@ -73,7 +73,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
-        ReimbursementDao reimbursementDao = ReimbursementDaoFactory.getEmployeeDao();
+        ReimbursementDao reimbursementDao = ReimbursementDaoFactory.getReimbursementDao();
 
         String expenseDetail = request.getParameter("detail");
         double amount = Double.parseDouble(request.getParameter("amount"));

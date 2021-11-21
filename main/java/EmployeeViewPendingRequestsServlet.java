@@ -1,9 +1,3 @@
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +13,7 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getEmployeeDao();
+        ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getReimbursementDao();
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         request.getRequestDispatcher("test.html").include(request, response);
 

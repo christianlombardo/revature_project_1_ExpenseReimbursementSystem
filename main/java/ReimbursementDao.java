@@ -48,7 +48,7 @@ public class ReimbursementDao implements DAO<Reimbursement>{
     }
 
     @Override
-    public Reimbursement readById(Reimbursement obj) {
+    public Reimbursement readById(int reimbuyrsementId) {
 
         return null;
     }
@@ -59,8 +59,21 @@ public class ReimbursementDao implements DAO<Reimbursement>{
     }
 
     @Override
-    public void update(Reimbursement obj) {
+    public void update(Reimbursement reimbursement) {
+        // open the session
+        Session session = sessionFactory.openSession();
 
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        // hibernate update employee record
+        session.update(reimbursement);
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
     }
 
     @Override

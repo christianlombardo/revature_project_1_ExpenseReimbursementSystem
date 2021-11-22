@@ -45,8 +45,27 @@ public class EmployeeDao implements DAO<Employee> {
     }
 
     @Override
-    public Employee readById(Employee employee) {
-        return null;
+    public Employee readById(int employeeId) {
+
+        // open the session
+        Session session = sessionFactory.openSession();
+
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        String hql = "FROM Employee WHERE employeeId=:currEmployeeId";
+        Query query = session.createQuery(hql);
+        query.setParameter("currEmployeeId", employeeId);
+        Employee employee = (Employee)query.uniqueResult();
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
+
+        return employee;
+
     }
 
     @Override

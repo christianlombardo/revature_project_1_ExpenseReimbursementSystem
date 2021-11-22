@@ -4,7 +4,7 @@ public interface DAO<T> {
 
     void insert(T obj);
 
-    T readById(T obj);
+    T readById(int id);
 
     List<T> readAll();
 

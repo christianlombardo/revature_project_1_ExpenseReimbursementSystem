@@ -30,7 +30,7 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
     }
 
     @Override
-    public FinancialManager readById(FinancialManager financialManager) {
+    public FinancialManager readById(int financialManagerId) {
         return null;
     }
 

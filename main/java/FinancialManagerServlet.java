@@ -22,8 +22,7 @@ public class FinancialManagerServlet extends HttpServlet {
         List<Reimbursement> reimbursements = new ArrayList<>();
         Iterator iterator = reimbursements.iterator();
         out.println(
-                "<style>body{background-color:grey}</style>" +
-                        "<header>head</head>" +
+                "<style>body{background-color:grey}</style>" +       
                         "<div class=\"container\"" +
                         "<div class=\"row g-3\">" +
                         "<div class=\"col-md-12\">" +

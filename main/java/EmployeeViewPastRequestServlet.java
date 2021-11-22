@@ -30,9 +30,12 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
                         "<div class=\"col-md-12\">" +
                         "<table class=\"table table-bordered table-dark table-responsive\" style=\"font-family:Arial;\">" +
                         "<tr>\n" +
-                        "    <th>ID</th>\n" +
-                        "    <th>Name</th>\n" +
-                        "    <th>Username</th>\n" +
+                        "    <th>Ticket Number</th>\n" +
+                        "    <th>Expense Detail</th>\n" +
+                        "    <th>Amount</th>\n" +
+                        "    <th>Date Start</th>\n" +
+                        "    <th>Date End</th>\n" +
+                        "    <th>Ticket Status</th>\n" +
                         "  </tr>");
 
         HttpSession httpSession = request.getSession();

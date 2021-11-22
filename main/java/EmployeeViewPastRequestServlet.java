@@ -25,7 +25,7 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
                         "<div class=\"container\"" +
                         "<div class=\"row g-3\">" +
                         "<div class=\"col-md-12\">" +
-                        "	<h1>User Profile</h1>" +
+                        "	<h1>Past Reimbursements</h1>" +
                         "</div>" +
                         "<div class=\"col-md-12\">" +
                         "<table class=\"table table-bordered table-dark table-responsive\" style=\"font-family:Arial;\">" +

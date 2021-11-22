@@ -10,10 +10,10 @@ import java.util.List;
 public class EmployeeViewPendingRequestsServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-       response.setContentType("text/html");
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getReimbursementDao();
+        ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getEmployeeDao();
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         request.getRequestDispatcher("test.html").include(request, response);
 
@@ -28,15 +28,18 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
                         "<div class=\"col-md-12\">" +
                         "<table class=\"table table-bordered table-dark table-responsive\" style=\"font-family:Arial;\">" +
                         "<tr>\n" +
-                        "    <th>ID</th>\n" +
-                        "    <th>Name</th>\n" +
-                        "    <th>Username</th>\n" +
+                        "    <th>Ticket Number</th>\n" +
+                        "    <th>Expense Detail</th>\n" +
+                        "    <th>Amount</th>\n" +
+                                "    <th>Date Start</th>\n" +
+                                "    <th>Date End</th>\n" +
+                                "    <th>Ticket Status</th>\n" +
                         "  </tr>");
 
         HttpSession httpSession = request.getSession();
 
+        List<Reimbursement> results = daoReimbursement.readAll();
         Employee employee = (Employee)httpSession.getAttribute("employee");
-        List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatus(employee.getId(), Reimbursement.hmap.get("PENDING"));
 
         for (Reimbursement reimbursement : results) {
             httpSession.setAttribute("id", reimbursement.getTicketNumber());

@@ -1,7 +1,4 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -19,7 +16,12 @@ public class Reimbursement {
     private Date dateStart;
     private Date dateEnd;
     private Integer ticketStatus;
-    private int employeeId;
+
+    @ManyToOne
+    @JoinColumn(name="employeeId")
+    Employee employee;
+    //private int employeeId;
+
 
     Reimbursement() {
         hmapTicketStatus();
@@ -83,17 +85,25 @@ public class Reimbursement {
         this.ticketStatus = ticketStatus;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+//    public int getEmployeeId() {
+//        return employeeId;
+//    }
+//
+//    public void setEmployeeId(int employeeId) {
+//        this.employeeId = employeeId;
+//    }
+
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
     public String toString() {
-        return "detail =" + this.getExpenseDetail() + ", getAmount= " + this.getAmount() + ", getDateStart" + this.getDateStart() + ", getDateEnd" + this.getDateEnd() + ", getEmployeeId=" + this.getEmployeeId();
+        return "detail =" + this.getExpenseDetail() + ", getAmount= " + this.getAmount() + ", getDateStart" + this.getDateStart() + ", getDateEnd" + this.getDateEnd() + ", getEmployeeId=" + this.employee.getEmployeeId();
     }
 
     public static void hmapTicketStatus() {

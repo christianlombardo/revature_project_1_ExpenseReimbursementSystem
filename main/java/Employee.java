@@ -1,7 +1,4 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -9,11 +6,12 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private int employeeId;
     private String name;
     private String username;
     private String password;
     private String gender;
+
 
     public Employee() {}
 
@@ -22,19 +20,19 @@ public class Employee {
         this.password = password;
     }
 
-    public Employee(int id, String name, String username, String password) {
-        this.id = id;
+    public Employee(int employeeId, String name, String username, String password) {
+        this.employeeId = employeeId;
         this.name = name;
         this.username = username;
         this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getName() {

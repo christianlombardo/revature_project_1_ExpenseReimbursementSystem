@@ -126,7 +126,9 @@ public class ReimbursementDao implements DAO<Reimbursement>{
         // begin the transaction
         Transaction t = session.beginTransaction();
 
-        String hql = "FROM Reimbursement WHERE ticketStatus=:currticketStatus";
+        String hql = "SELECT ticketNumber, expenseDetail, amount, dateStart, dateEnd, ticketStatus, employee FROM Reimbursement INNER JOIN Reimbursement.employee";
+        //String hql = "SELECT ticketNumber, expenseDetail, amount, dateStart, dateEnd, ticketStatus, employee FROM Reimbursement INNER JOIN Reimbursement.employee WHERE ticketStatus=:currticketStatus";
+//      String hql = "FROM Reimbursement WHERE ticketStatus=:currticketStatus ORDER BY employeeId";
         //String hql = "FROM Reimbursement WHERE ticketStatus=" + ticketStatus + " AND employeeId=" + employeeId;
         Query query = session.createQuery(hql);
         query.setParameter("currticketStatus", ticketStatus);

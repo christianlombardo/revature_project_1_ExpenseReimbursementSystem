@@ -46,7 +46,7 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
         statuses.add(Reimbursement.hmap.get("APPROVED"));
         statuses.add(Reimbursement.hmap.get("DENIED"));
 
-        List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatuses(employee.getId(), statuses);
+        List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatuses(employee.getEmployeeId(), statuses);
 
         for (Reimbursement reimbursement : results) {
             httpSession.setAttribute("id", reimbursement.getTicketNumber());

@@ -66,7 +66,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -97,7 +97,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         reimbursement.setDateStart(dateStart);
         reimbursement.setDateEnd(dateEnd);
         reimbursement.setTicketStatus(ticketStatus);
-        reimbursement.setEmployeeId(employee.getId());
+        reimbursement.setEmployee(employee);
 
         reimbursementDao.insert(reimbursement);
 

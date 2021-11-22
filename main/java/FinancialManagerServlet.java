@@ -44,9 +44,9 @@ public class FinancialManagerServlet extends HttpServlet {
             i++;
             //employee
             //employee infor
-            if (reimbursements.get(i).getEmployeeId() == employees.get(i).getId()) {
+            if (reimbursements.get(i).getEmployee().getEmployeeId() == employees.get(i).getEmployeeId()) {
                 out.println("<tr>\n" +
-                        "<td>" + employees.get(i).getId() + "</td>\n" +
+                        "<td>" + employees.get(i).getEmployeeId() + "</td>\n" +
                         "<td>" + employees.get(i).getName() + "</td>\n" +
                         "<td>" + employees.get(i).getUsername() + "</td>\n" +
                         "<td>" + reimbursements.get(i).getAmount() + "</td>\n" +
@@ -83,9 +83,27 @@ public class FinancialManagerServlet extends HttpServlet {
         if (financialManagerDao.login(financialManager)) {
 
             // display all Pending requests
-            List<Reimbursement> results = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
-            List<Employee> employees = new ArrayList<>();
-            Iterator iterator = results.iterator();
+            List<Reimbursement> reimbursements = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
+            //List<Integer> employeeIds = new ArrayList<>();
+//            for (Reimbursement reimbursement : reimbursements) {
+//                employeeIds.add(reimbursement.getEmployeeId());
+//            }
+//            out.println("<h1>" + employeeIds.toString() + "</h1>");
+            for (Reimbursement reimbursement : reimbursements) {
+                /*int ticketNumber; // database id
+                private String expenseDetail;
+                private double amount;
+                private Date dateStart;
+                private Date dateEnd;
+                private Integer ticketStatus;
+                Employee employee;*/
+
+                out.print("TicketNumber= " + reimbursement.getTicketNumber() + ", ExpenseDetail" + reimbursement.getExpenseDetail() +
+                       "Amount = " +  reimbursement.getAmount() + ", DateStart = " + reimbursement.getDateStart() + ", DateEnd = " + reimbursement.getDateEnd() +
+                        ", TicketStatus = " + reimbursement.getTicketStatus() + ", reimbursement.getEmployee().getName() = " + reimbursement.getEmployee().getName());
+            }
+
+
             request.getRequestDispatcher("FinanceNavbar.html").include(request, response);
             out.println(
                     "<style>body{background-color:grey}</style>" +
@@ -109,21 +127,26 @@ public class FinancialManagerServlet extends HttpServlet {
                             "<th>Reject</th>\n" +
                             "</tr>");
 
-            while(iterator.hasNext()){
+            Iterator iterator = reimbursements.iterator();
+            while(iterator.hasNext()) {
                 i++;
-                if (results.get(i).getEmployeeId() == employees.get(i).getId()) {
+                Reimbursement reimbursement = (Reimbursement)iterator.next();
+                /*out.println(reimbursement.getTicketNumber() + reimbursement.getExpenseDetail() + reimbursement.getAmount() + reimbursement.getDateStart()
+                            + reimbursement.getDateEnd() + reimbursement.getTicketStatus() + reimbursement.getEmployeeId() );*/
+
+                /*if (reimbursement.getEmployeeId() == employees.get(i).getId()) {
                     out.println("<tr>\n" +
                             "<td>" + employees.get(i).getId() + "</td>\n" +
                             "<td>" + employees.get(i).getName() + "</td>\n" +
                             "<td>" + employees.get(i).getUsername() + "</td>\n" +
-                            "<td>" + results.get(i).getAmount() + "</td>\n" +
-                            "<td>" + results.get(i).getDateStart() + "</td>\n" +
-                            "<td>" + results.get(i).getDateEnd() + "</td>\n" +
-                            "<td>" + results.get(i).getTicketStatus() + "</td>\n" +
+                            "<td>" + reimbursements.get(i).getAmount() + "</td>\n" +
+                            "<td>" + reimbursements.get(i).getDateStart() + "</td>\n" +
+                            "<td>" + reimbursements.get(i).getDateEnd() + "</td>\n" +
+                            "<td>" + reimbursements.get(i).getTicketStatus() + "</td>\n" +
                             "<td><button onclick=\"getElementById('demo')\">Approve</button></td>\n" +
                             "<td><button onclick=\"getElementById('demo')\">Reject</button></td>\n" +
                             "</tr>");
-                }
+                }*/
             }
             out.println("</table>" +
                     "</div>" +

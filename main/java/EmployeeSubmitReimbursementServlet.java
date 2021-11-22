@@ -14,7 +14,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
+         request.getRequestDispatcher("test.html").include(request, response);
         //request.getRequestDispatcher("navbar.html").include(request, response);
 
         // get employee object from the session
@@ -70,7 +70,8 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
+        request.getRequestDispatcher("test.html").include(request, response);
+        
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
         ReimbursementDao reimbursementDao = ReimbursementDaoFactory.getReimbursementDao();

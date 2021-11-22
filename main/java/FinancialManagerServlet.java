@@ -29,7 +29,7 @@ public class FinancialManagerServlet extends HttpServlet {
                         "<h1>User Profile</h1>" +
                         "</div>" +
                         "<div class=\"col-md-12\">" +
-                        "<table class=\"table table-bordered table-dark table-responsive\" style=\"font-family:Arial;\">" +
+                        "<table class=\"table table-bordered table-dark table-responsive\">" +
                         "<tr>\n" +
                         "<th>ID</th>\n" +
                         "<th>Name</th>\n" +
@@ -96,15 +96,17 @@ public class FinancialManagerServlet extends HttpServlet {
                             "<h1>User Profile</h1>" +
                             "</div>" +
                             "<div class=\"col-md-12\">" +
-                            "<table class=\"table table-bordered table-dark table-responsive\" style=\"font-family:Arial;\">" +
+                            "<table class=\"table table-bordered table-dark table-responsive\">" +
                             "<tr>\n" +
                             "<th>ID</th>\n" +
                             "<th>Name</th>\n" +
                             "<th>Username</th>\n" +
                             "<th>Amount</th>\n" +
                             "<th>Date</th>\n" +
-                            "<th>Ticket Number</th>\n" +
+                           "<th>Ticket Number</th>\n" +
                             "<th>Ticket Status</th>\n" +
+                            "<th>Approve</th>\n" +
+                            "<th>Reject</th>\n" +
                             "</tr>");
 
             while(iterator.hasNext()){
@@ -118,6 +120,8 @@ public class FinancialManagerServlet extends HttpServlet {
                             "<td>" + results.get(i).getDateStart() + "</td>\n" +
                             "<td>" + results.get(i).getDateEnd() + "</td>\n" +
                             "<td>" + results.get(i).getTicketStatus() + "</td>\n" +
+                            "<td><button onclick=\"getElementById('demo')\">Approve</button></td>\n" +
+                            "<td><button onclick=\"getElementById('demo')\">Reject</button></td>\n" +
                             "</tr>");
                 }
             }

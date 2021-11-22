@@ -74,6 +74,8 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
+        //out.println("<h1>You are submitting a new reimbursement request..............</h1>");
+
         ReimbursementDao reimbursementDao = ReimbursementDaoFactory.getReimbursementDao();
 
         String expenseDetail = request.getParameter("detail");
@@ -89,6 +91,8 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
         Employee employee = (Employee) httpSession.getAttribute("employee");
+        out.println("EmployeeId =" + employee.getEmployeeId() + ", Name =" + employee.getName() + ", Username =" + employee.getUsername() + ", Password =" + employee.getPassword());
+
 
         Integer ticketStatus = Reimbursement.hmap.get("PENDING");
         Reimbursement reimbursement = new Reimbursement();
@@ -97,7 +101,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         reimbursement.setDateStart(dateStart);
         reimbursement.setDateEnd(dateEnd);
         reimbursement.setTicketStatus(ticketStatus);
-        reimbursement.setEmployee(employee);
+        reimbursement.setEmployeeId(employee.getEmployeeId());
 
         reimbursementDao.insert(reimbursement);
 

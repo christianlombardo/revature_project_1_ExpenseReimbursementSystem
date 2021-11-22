@@ -44,7 +44,7 @@ public class FinancialManagerServlet extends HttpServlet {
             i++;
             //employee
             //employee infor
-            if (reimbursements.get(i).getEmployee().getEmployeeId() == employees.get(i).getEmployeeId()) {
+            if (reimbursements.get(i).getEmployeeId() == employees.get(i).getEmployeeId()) {
                 out.println("<tr>\n" +
                         "<td>" + employees.get(i).getEmployeeId() + "</td>\n" +
                         "<td>" + employees.get(i).getName() + "</td>\n" +
@@ -100,7 +100,7 @@ public class FinancialManagerServlet extends HttpServlet {
 
                 out.print("TicketNumber= " + reimbursement.getTicketNumber() + ", ExpenseDetail" + reimbursement.getExpenseDetail() +
                        "Amount = " +  reimbursement.getAmount() + ", DateStart = " + reimbursement.getDateStart() + ", DateEnd = " + reimbursement.getDateEnd() +
-                        ", TicketStatus = " + reimbursement.getTicketStatus() + ", reimbursement.getEmployee().getName() = " + reimbursement.getEmployee().getName());
+                        ", TicketStatus = " + reimbursement.getTicketStatus() + ", reimbursement.getEmployee().getName() = ");// + reimbursement.getEmployee().getName());
             }
 
 

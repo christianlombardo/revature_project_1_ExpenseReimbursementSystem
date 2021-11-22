@@ -17,10 +17,11 @@ public class Reimbursement {
     private Date dateEnd;
     private Integer ticketStatus;
 
-    @ManyToOne
-    @JoinColumn(name="employeeId")
-    Employee employee;
-    //private int employeeId;
+    //@ManyToOne
+    //@JoinColumn(name="EMPLOYEE_ID")
+    //Employee employee;
+
+    private int employeeId;
 
 
     Reimbursement() {
@@ -93,17 +94,25 @@ public class Reimbursement {
 //        this.employeeId = employeeId;
 //    }
 
-    public Employee getEmployee() {
-        return employee;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
+
+//    public Employee getEmployee() {
+//        return employee;
+//    }
+
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
 
     @Override
     public String toString() {
-        return "detail =" + this.getExpenseDetail() + ", getAmount= " + this.getAmount() + ", getDateStart" + this.getDateStart() + ", getDateEnd" + this.getDateEnd() + ", getEmployeeId=" + this.employee.getEmployeeId();
+        return "detail =" + this.getExpenseDetail() + ", getAmount= " + this.getAmount() + ", getDateStart" + this.getDateStart() + ", getDateEnd" + this.getDateEnd() + ", getEmployeeId="; //+ this.employee.getEmployeeId();
     }
 
     public static void hmapTicketStatus() {

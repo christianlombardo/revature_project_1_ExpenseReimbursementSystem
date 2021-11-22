@@ -38,7 +38,7 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        List<Reimbursement> results = daoReimbursement.readAll();
+        List<Reimbursement> results = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
         Employee employee = (Employee)httpSession.getAttribute("employee");
 
         for (Reimbursement reimbursement : results) {

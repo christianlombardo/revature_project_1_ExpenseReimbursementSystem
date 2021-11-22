@@ -52,7 +52,7 @@ public class EmployeeServlet extends HttpServlet {
 
 
         } else {
-            out.println("<please check you username and password.");
+            out.println("<h1>please check you username and password.</h1>");
         }
 
         //out.println("username = " + username + " password = " + password);

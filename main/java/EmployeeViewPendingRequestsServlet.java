@@ -13,7 +13,7 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getEmployeeDao();
+        ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getReimbursementDao();
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         request.getRequestDispatcher("test.html").include(request, response);
 

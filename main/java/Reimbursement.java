@@ -13,7 +13,9 @@ public class Reimbursement {
     private int ticketNumber; // database id
     private String expenseDetail;
     private double amount;
+    @Temporal(TemporalType.DATE)
     private Date dateStart;
+    @Temporal(TemporalType.DATE)
     private Date dateEnd;
 //    private String dateStart;
 //    private String dateEnd;

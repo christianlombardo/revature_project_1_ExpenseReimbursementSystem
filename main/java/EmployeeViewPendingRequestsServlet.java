@@ -39,9 +39,11 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
                         "  </tr>");
 
         HttpSession httpSession = request.getSession();
-
-        List<Reimbursement> results = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
         Employee employee = (Employee)httpSession.getAttribute("employee");
+
+        //List<Reimbursement> results = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
+        List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatus(employee.getEmployeeId(), Reimbursement.hmap.get("PENDING"));
+
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");

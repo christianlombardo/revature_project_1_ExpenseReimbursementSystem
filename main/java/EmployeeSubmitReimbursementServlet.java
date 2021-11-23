@@ -79,6 +79,11 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         out.println("<h1>request.getParameter(start))=" + request.getParameter("start") + "</h1>");
         out.println("<h1>request.getParameter(end)=" + request.getParameter("end") + "</h1>");
 
+        //Date dateStart = new Date();
+//        out.println("<h1>request.getParameter(start))=" + request.getParameter("start") + "</h1>");
+//        out.println("<h1>request.getParameter(end)=" + request.getParameter("end") + "</h1>");
+
+
         String expenseDetail = request.getParameter("detail");
         double amount = Double.parseDouble(request.getParameter("amount"));
         Date dateStart = new Date();
@@ -105,10 +110,9 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         reimbursementDao.insert(reimbursement);
 
-        out.println("<h1>You have submitted a new reimbursement request!</h1>");
+        // out.println("<h1>You have submitted a new reimbursement request!</h1>");
 
-        // add html/css/bootstrap layout
-
+        response.sendRedirect("EmployeeViewPendingRequestsServlet");
 
     }
 }

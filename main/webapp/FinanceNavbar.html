@@ -14,20 +14,32 @@
 <body>
 
 
- 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="nav nav-tabs navbar-fixed-top sticky">
-           
-                <form action="EmployeeViewPastRequestServlet" method = "get">
+
+                <form action="FinancialManagerServlet" method = "get">
             <li class="nav-item">
-                <button class="btn btn-outline-primary btn-lg px-10" type="submit">Past Requests</button>
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View pending reimbursements</button>
             </li>
                 </form>
-                    <form action="EmployeeViewPendingServlet" method = "get">
+                    <form action="PastReimbursements" method = "get">
             <li class="nav-item">
-                <button class="btn btn-outline-primary btn-lg px-10" type="submit">Pending Requests</button>
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View all past reimbursements</button>
             </li>
                     </form>
+            <form action="AddEmployeeServlet" method = "post">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add employee</button>
+                </li>
+            </form>
+            <form action="AddFinancialManagerServlet" method = "post">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add financial manager</button>
+                </li>
+            </form>
+            <li class="nav-item">
+                <a class="nav-link" href="LogoutServlet">Logout</a>
+            </li>
         </ul>
     </nav>
 </body>

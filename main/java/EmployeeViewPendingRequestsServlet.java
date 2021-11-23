@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class EmployeeViewPendingRequestsServlet extends HttpServlet {
@@ -41,15 +42,17 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
         List<Reimbursement> results = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
         Employee employee = (Employee)httpSession.getAttribute("employee");
 
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+
         for (Reimbursement reimbursement : results) {
             httpSession.setAttribute("id", reimbursement.getTicketNumber());
             out.println("<tr>\n" +
                     "    <td>" + reimbursement.getTicketNumber()+ "</td>\n" +
                     "    <td>" + reimbursement.getExpenseDetail() + "</td>\n" +
-                    "    <td>" + reimbursement.getAmount()+ "</td>\n" +
+                    "    <td>" + currencyFormat.format(reimbursement.getAmount()) + "</td>\n" +
                     "    <td>" + reimbursement.getDateStart() + "</td>\n" +
                     "    <td>" + reimbursement.getDateEnd() + "</td>\n" +
-                    "    <td>" + reimbursement.getTicketStatus() + "</td>\n" +
+                    "    <td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" +
                     "</tr>" );
 
         }

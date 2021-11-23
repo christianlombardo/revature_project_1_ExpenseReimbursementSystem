@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,15 +50,18 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
 
         List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatuses(employee.getEmployeeId(), statuses);
 
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+
         for (Reimbursement reimbursement : results) {
             httpSession.setAttribute("id", reimbursement.getTicketNumber());
             out.println("<tr>\n" +
                     "    <td>" + reimbursement.getTicketNumber()+ "</td>\n" +
                     "    <td>" + reimbursement.getExpenseDetail() + "</td>\n" +
-                    "    <td>" + reimbursement.getAmount()+ "</td>\n" +
+                    "    <td>" + currencyFormat.format(reimbursement.getAmount())+ "</td>\n" +
                     "    <td>" + reimbursement.getDateStart() + "</td>\n" +
                     "    <td>" + reimbursement.getDateEnd() + "</td>\n" +
-                    "    <td>" + reimbursement.getTicketStatus() + "</td>\n" +
+                    "    <td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" +
                     "</tr>" );
 
         }

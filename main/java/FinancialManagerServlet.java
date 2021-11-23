@@ -95,7 +95,6 @@ public class FinancialManagerServlet extends HttpServlet {
             request.getRequestDispatcher("FinanceNavbar.html").include(request, response);
             out.println(
                     "<style>body{background-color:grey}</style>" +
-                            "<header>head</head>" +
                             "<div class=\"container\"" +
                             "<div class=\"row g-3\">" +
                             "<div class=\"col-md-12\">" +
@@ -107,6 +106,7 @@ public class FinancialManagerServlet extends HttpServlet {
                             "<th>ID</th>\n" +
                             "<th>Employee Name</th>\n" +
                             "<th>Username</th>\n" +
+                            "<th>Ticket Detail</th>\n" +
                             "<th>Amount</th>\n" +
                             "<th>Start Date</th>\n" +
                             "<th>End Date</th>\n" +
@@ -125,32 +125,35 @@ public class FinancialManagerServlet extends HttpServlet {
                 // get employee data from the database
                 Employee employee = daoEmployee.readById(reimbursement.getEmployeeId());
 
-                    out.println("<tr>\n" +
-                            "<td>" + employee.getEmployeeId() + "</td>\n" +
-                            "<td>" + employee.getName() + "</td>\n" +
-                            "<td>" + employee.getUsername() + "</td>\n" +
-                            "<td>" + currencyFormat.format(reimbursement.getAmount()) + "</td>\n" +
-                            "<td>" + reimbursement.getDateStart() + "</td>\n" +
-                            "<td>" + reimbursement.getDateEnd() + "</td>\n" +
-                            "<td>" + reimbursement.getTicketNumber() + "</td>\n" +
-                            "<td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" + /*
-                            "<td><button onclick=\"getElementById('demo')\">Approve</button></td>\n" +
-                            "<td><button onclick=\"getElementById('demo')\">Reject</button></td>\n" + */
-                            "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("APPROVED") +
-                            "&expenseDetail=" + reimbursement.getExpenseDetail() +
-                            "&amount=" + reimbursement.getAmount() +
-                            "&dateStart=" + reimbursement.getDateStart() +
-                            "&dateEnd=" + reimbursement.getDateEnd()+
-                            "\" style=\"color: blue\">" +
-                            "APPROVE</a></td>\n" +
-                            "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("DENIED") +
-                            "&expenseDetail=" + reimbursement.getExpenseDetail() +
-                            "&amount=" + reimbursement.getAmount() +
-                            "&dateStart=" + reimbursement.getDateStart() +
-                            "&dateEnd=" + reimbursement.getDateEnd()+
-                            "\" style=\"color: blue\">" +
-                            "DENY</a></td>\n" +
-                            "</tr>");
+                out.println("<tr>\n" +
+                        "<td>" + employee.getEmployeeId() + "</td>\n" +
+                        "<td>" + employee.getName() + "</td>\n" +
+                        "<td>" + employee.getUsername() + "</td>\n" +
+                        "<td>" + reimbursement.getExpenseDetail() + "</td>\n" +
+                        "<td>" + currencyFormat.format(reimbursement.getAmount()) + "</td>\n" +
+                        "<td>" + reimbursement.getDateStart() + "</td>\n" +
+                        "<td>" + reimbursement.getDateEnd() + "</td>\n" +
+                        "<td>" + reimbursement.getTicketNumber() + "</td>\n" +
+                        "<td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" + /*
+                        "<td><button onclick=\"getElementById('demo')\">Approve</button></td>\n" +
+                        "<td><button onclick=\"getElementById('demo')\">Reject</button></td>\n" + */
+                        "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("APPROVED") +
+                        "&expenseDetail=" + reimbursement.getExpenseDetail() +
+                        "&amount=" + reimbursement.getAmount() +
+                        "&dateStart=" + reimbursement.getDateStart() +
+                        "&dateEnd=" + reimbursement.getDateEnd() +
+                        "&employeeId=" + reimbursement.getEmployeeId() +
+                        "\" style=\"color: blue\">" +
+                        "APPROVE</a></td>\n" +
+                        "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("DENIED") +
+                        "&expenseDetail=" + reimbursement.getExpenseDetail() +
+                        "&amount=" + reimbursement.getAmount() +
+                        "&dateStart=" + reimbursement.getDateStart() +
+                        "&dateEnd=" + reimbursement.getDateEnd() +
+                        "&employeeId=" + reimbursement.getEmployeeId() +
+                        "\" style=\"color: blue\">" +
+                        "DENY</a></td>\n" +
+                        "</tr>");
             }
             out.println("</table>" +
                     "</div>" +

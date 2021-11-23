@@ -21,9 +21,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         HttpSession session = request.getSession(false); // true to create a new session for this request if necessary; false to return null if there's no current session https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html#getSession(boolean)
         Employee employee = (Employee) session.getAttribute("employee");
 
-
         // submit request to add in the reimbursement table in the database.
-
 
         out.println("<section class='vh-100 gradient-custom'>" +
                 "<form action=\"EmployeeSubmitReimbursementServlet\" method=\"post\" > " +
@@ -91,8 +89,7 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
         Employee employee = (Employee) httpSession.getAttribute("employee");
-        out.println("EmployeeId =" + employee.getEmployeeId() + ", Name =" + employee.getName() + ", Username =" + employee.getUsername() + ", Password =" + employee.getPassword());
-
+        //out.println("EmployeeId =" + employee.getEmployeeId() + ", Name =" + employee.getName() + ", Username =" + employee.getUsername() + ", Password =" + employee.getPassword());
 
         Integer ticketStatus = Reimbursement.hmap.get("PENDING");
         Reimbursement reimbursement = new Reimbursement();

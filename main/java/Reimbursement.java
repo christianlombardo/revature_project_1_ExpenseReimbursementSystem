@@ -16,12 +16,13 @@ public class Reimbursement {
     private Date dateStart;
     private Date dateEnd;
     private Integer ticketStatus;
+    private int employeeId;
 
     //@ManyToOne
     //@JoinColumn(name="EMPLOYEE_ID")
     //Employee employee;
 
-    private int employeeId;
+
 
 
     Reimbursement() {

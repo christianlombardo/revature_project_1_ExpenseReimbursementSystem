@@ -116,7 +116,10 @@ public class EmployeeDao implements DAO<Employee> {
         Employee result = (Employee)query.uniqueResult();
 
         boolean flag = false;
-        if(employee.getUsername().equals(result.getUsername()) && employee.getPassword().equals(employee.getPassword())) {
+        if (result == null) {
+            flag = false;
+        }
+        else if(employee.getUsername().equals(result.getUsername()) && employee.getPassword().equals(employee.getPassword())) {
             flag = true;
         }
 

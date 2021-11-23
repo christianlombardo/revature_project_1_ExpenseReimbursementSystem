@@ -34,7 +34,9 @@ public class EmployeeServlet extends HttpServlet {
 
 
         } else {
-            out.println("<h1>please check you username and password.</h1>");
+              String message = "Please enter a valid username and password";
+            request.setAttribute("message", message);
+            request.getRequestDispatcher("/WEB-INF/LoginFailEmployee.jsp").forward(request, response);
         }
 
         //out.println("username = " + username + " password = " + password);

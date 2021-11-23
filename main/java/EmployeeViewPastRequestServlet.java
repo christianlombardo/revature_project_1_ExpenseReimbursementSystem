@@ -22,7 +22,6 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
         request.getRequestDispatcher("test.html").include(request, response);
 
         out.println(
-
                 "<style>body{background-color:grey}</style>" +
                         "<div class=\"container\"" +
                         "<div class=\"row g-3\">" +
@@ -53,14 +52,18 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
+        /*java.util.Date dt = new java.util.Date();
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTime = sdf.format(dt);*/
+
         for (Reimbursement reimbursement : results) {
             httpSession.setAttribute("id", reimbursement.getTicketNumber());
             out.println("<tr>\n" +
                     "    <td>" + reimbursement.getTicketNumber()+ "</td>\n" +
                     "    <td>" + reimbursement.getExpenseDetail() + "</td>\n" +
                     "    <td>" + currencyFormat.format(reimbursement.getAmount())+ "</td>\n" +
-                    "    <td>" + reimbursement.getDateStart() + "</td>\n" +
-                    "    <td>" + reimbursement.getDateEnd() + "</td>\n" +
+                    "    <td>" + dateFormat.format(reimbursement.getDateStart()) + "</td>\n" +
+                    "    <td>" + dateFormat.format(reimbursement.getDateEnd()) + "</td>\n" +
                     "    <td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" +
                     "</tr>" );
 

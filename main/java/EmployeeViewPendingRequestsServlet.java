@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class EmployeeViewPendingRequestsServlet extends HttpServlet {
@@ -43,6 +44,7 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
         Employee employee = (Employee)httpSession.getAttribute("employee");
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
         for (Reimbursement reimbursement : results) {
             httpSession.setAttribute("id", reimbursement.getTicketNumber());
@@ -50,8 +52,8 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
                     "    <td>" + reimbursement.getTicketNumber()+ "</td>\n" +
                     "    <td>" + reimbursement.getExpenseDetail() + "</td>\n" +
                     "    <td>" + currencyFormat.format(reimbursement.getAmount()) + "</td>\n" +
-                    "    <td>" + reimbursement.getDateStart() + "</td>\n" +
-                    "    <td>" + reimbursement.getDateEnd() + "</td>\n" +
+                    "    <td>" + dateFormat.format(reimbursement.getDateStart()) + "</td>\n" +
+                    "    <td>" + dateFormat.format(reimbursement.getDateEnd()) + "</td>\n" +
                     "    <td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" +
                     "</tr>" );
 

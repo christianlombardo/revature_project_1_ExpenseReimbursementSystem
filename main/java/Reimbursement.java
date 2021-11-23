@@ -15,6 +15,8 @@ public class Reimbursement {
     private double amount;
     private Date dateStart;
     private Date dateEnd;
+//    private String dateStart;
+//    private String dateEnd;
     private Integer ticketStatus;
     private int employeeId;
 

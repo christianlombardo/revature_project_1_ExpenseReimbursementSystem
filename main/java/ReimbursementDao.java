@@ -131,6 +131,31 @@ public class ReimbursementDao implements DAO<Reimbursement>{
         return results;
     }
 
+    public List<Reimbursement> readByTicketStatuses(List<Integer> ticketStatus) {
+
+        // open the session
+        Session session = sessionFactory.openSession();
+
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        String hql = "FROM Reimbursement WHERE ticketStatus IN :currticketStatus";
+        Query query = session.createQuery(hql);
+
+        query.setParameter("currticketStatus", ticketStatus);
+
+        List<Reimbursement> results = query.list();
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
+
+        return results;
+    }
+
+
     public List<Reimbursement> readByTicketStatus(Integer ticketStatus) {
 
         // open the session

@@ -76,6 +76,9 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         ReimbursementDao reimbursementDao = ReimbursementDaoFactory.getReimbursementDao();
 
+        out.println("<h1>request.getParameter(start))=" + request.getParameter("start") + "</h1>");
+        out.println("<h1>request.getParameter(end)=" + request.getParameter("end") + "</h1>");
+
         String expenseDetail = request.getParameter("detail");
         double amount = Double.parseDouble(request.getParameter("amount"));
         Date dateStart = new Date();

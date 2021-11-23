@@ -96,4 +96,14 @@
   </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>FinancialManagerViewAllServlet</servlet-name>
+        <servlet-class>FinancialManagerViewAllServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FinancialManagerViewAllServlet</servlet-name>
+        <url-pattern>/FinancialManagerViewAllServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

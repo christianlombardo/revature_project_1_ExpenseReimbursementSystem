@@ -28,7 +28,6 @@ public class FinancialManagerViewAllServlet extends HttpServlet {
             request.getRequestDispatcher("FinanceNavbar.html").include(request, response);
             out.println(
                     "<style>body{background-color:grey}</style>" +
-                            "<header>head</head>" +
                             "<div class=\"container\"" +
                             "<div class=\"row g-3\">" +
                             "<div class=\"col-md-12\">" +

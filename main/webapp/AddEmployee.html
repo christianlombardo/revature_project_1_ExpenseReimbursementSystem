@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <style>
         body {
-            background-color: #2779e2;
+           background-color: #666699;
         }
         a {
             color: #000000;
@@ -16,30 +16,28 @@
             background -color: #fff;
             padding:0 px;
             box-sizing: border-box;
-            marging: auto;
+            margin: auto;
             border-radius: 7px;
         }
     </style>
 </head>
 <body>
 
-
 <section class="vh-100">
     <form action="AddEmployeeServlet" method="post">
-        <div class="container h-100">
-            <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-4"><a href="index.html" >Home</a></div>
-            </div>
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-9">
+        <section class="vh-100 gradient-custom">
+            <div class="container py-20 h-100">
+                <div class="row d-flex justify-content-left align-items-center h-100  w-1">
+                    <div class="col-12 col-md-9 col-lg-5 col-xl-5">
+                        <div class="card bg-dark text-white " style="border-radius: 8rem; width: 200%; ">
+                            <div class="card-body p-20 text-center w-auto p-6">
 
-                    <div class="mb-4" name="servletresult"></div>
-
-                    <h1 class="mb-4">Add Employee</h1>
-                    <div class="card" style="border-radius: 15px;">
+                                <div class="mb-md-5 mt-md-4 pb-15">
+                        <h1 class="mb-2 ">Add Employee</h1>
                         <div class="card-body">
 
                             <div class="row align-items-center pt-4 pb-3">
+
                                 <div class="col-md-3 ps-5">
                                     <h6 class="mb-0">Full name</h6>
                                 </div>
@@ -101,13 +99,13 @@
                                 <button type="submit" class="btn btn-primary btn-block">Save</button>
                             </div>
 
-                            <div class="px-5 py-4">
-                                <a href="ViewEmployeeListServlet">View List</a>
-                            </div>
                         </div>
                     </div>
                 </div>
+
                 </div>
+
+
             </div>
         </div>
     </form>

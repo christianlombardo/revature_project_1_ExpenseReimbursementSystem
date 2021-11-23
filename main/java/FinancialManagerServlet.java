@@ -161,7 +161,9 @@ public class FinancialManagerServlet extends HttpServlet {
 
         }
         else{
-                out.println("<h1>please check you username and password.</h1>");
+               String message = "Please enter a valid username and password";
+            request.setAttribute("message", message);
+            request.getRequestDispatcher("/WEB-INF/LoginFailManager.jsp").forward(request, response);
             }
 
 

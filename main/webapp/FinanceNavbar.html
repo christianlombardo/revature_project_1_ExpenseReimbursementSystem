@@ -22,11 +22,11 @@
                 <button class="btn btn-outline-primary btn-lg px-10" type="submit">View pending reimbursements</button>
             </li>
                 </form>
-                    <form action="PastReimbursements" method = "get">
-            <li class="nav-item">
-                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View all past reimbursements</button>
-            </li>
-                    </form>
+            <form action="FinancialManagerViewAllServlet" method = "get">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary btn-lg px-10" type="submit">View all reimbursements</button>
+                </li>
+            </form>
             <form action="AddEmployeeServlet" method = "post">
                 <li class="nav-item">
                     <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add employee</button>
@@ -37,6 +37,7 @@
                     <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add financial manager</button>
                 </li>
             </form>
+          
             <li class="nav-item">
                 <a class="nav-link" href="LogoutServlet">Logout</a>
             </li>

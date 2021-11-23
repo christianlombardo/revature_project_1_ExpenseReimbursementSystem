@@ -21,20 +21,21 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = new Employee(username, password);
 
         if (employeeDao.login(employee)) {
-            request.getRequestDispatcher("test.html").include(request, response);
-            out.println("<h1>You have successfully logged in!</h1>");
+
 
             // submit requests for reimbursement
-           
+
             employee = employeeDao.getEmployeeByUsernamePassword(username, password);
             HttpSession session = request.getSession();
             session.setAttribute("employee", employee);
-                
+
             // view their past tickets and pending requests.
+            request.getRequestDispatcher("test.html").include(request, response);
+            response.sendRedirect("EmployeeViewPendingRequestsServlet");
 
 
         } else {
-              String message = "Please enter a valid username and password";
+            String message = "Please enter a valid username and password";
             request.setAttribute("message", message);
             request.getRequestDispatcher("/WEB-INF/LoginFailEmployee.jsp").forward(request, response);
         }

@@ -110,6 +110,27 @@ public class Reimbursement {
 //        this.employee = employee;
 //    }
 
+    public static String getStatusName(int statusNum) {
+
+        String statusName="";
+        switch (statusNum) {
+            case 0:
+                statusName = "PENDING";
+                break;
+            case 1:
+                statusName = "APPROVED";
+                break;
+            case 2:
+                statusName = "DENIED";
+                break;
+            default:
+                break;
+        }
+
+        return statusName;
+
+    }
+
     @Override
     public String toString() {
         return "detail =" + this.getExpenseDetail() + ", getAmount= " + this.getAmount() + ", getDateStart" + this.getDateStart() + ", getDateEnd" + this.getDateEnd() + ", getEmployeeId="; //+ this.employee.getEmployeeId();

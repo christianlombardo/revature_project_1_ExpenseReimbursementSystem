@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -90,21 +91,6 @@ public class FinancialManagerServlet extends HttpServlet {
 //            for (Reimbursement reimbursement : reimbursements) {
 //                employeeIds.add(reimbursement.getEmployeeId());
 //            }
-//            out.println("<h1>" + employeeIds.toString() + "</h1>");
-            for (Reimbursement reimbursement : reimbursements) {
-                /*int ticketNumber; // database id
-                private String expenseDetail;
-                private double amount;
-                private Date dateStart;
-                private Date dateEnd;
-                private Integer ticketStatus;
-                Employee employee;*/
-
-                /*out.print("TicketNumber= " + reimbursement.getTicketNumber() + ", ExpenseDetail" + reimbursement.getExpenseDetail() +
-                       "Amount = " +  reimbursement.getAmount() + ", DateStart = " + reimbursement.getDateStart() + ", DateEnd = " + reimbursement.getDateEnd() +
-                        ", TicketStatus = " + reimbursement.getTicketStatus() + ", reimbursement.getEmployee().getName() = ");// + reimbursement.getEmployee().getName());*/
-            }
-
 
             request.getRequestDispatcher("FinanceNavbar.html").include(request, response);
             out.println(
@@ -119,38 +105,35 @@ public class FinancialManagerServlet extends HttpServlet {
                             "<table class=\"table table-bordered table-dark table-responsive\">" +
                             "<tr>\n" +
                             "<th>ID</th>\n" +
-                            "<th>Name</th>\n" +
+                            "<th>Employee Name</th>\n" +
                             "<th>Username</th>\n" +
                             "<th>Amount</th>\n" +
-                            "<th>Date</th>\n" +
-                           "<th>Ticket Number</th>\n" +
+                            "<th>Start Date</th>\n" +
+                            "<th>End Date</th>\n" +
+                            "<th>Ticket Number</th>\n" +
                             "<th>Ticket Status</th>\n" +
                             "<th>Approve</th>\n" +
                             "<th>Reject</th>\n" +
                             "</tr>");
 
+            NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+
             Iterator iterator = reimbursements.iterator();
             while(iterator.hasNext()) {
                 Reimbursement reimbursement = (Reimbursement)iterator.next();
-                /*out.println(reimbursement.getTicketNumber() + reimbursement.getExpenseDetail() + reimbursement.getAmount() + reimbursement.getDateStart()
-                            + reimbursement.getDateEnd() + reimbursement.getTicketStatus() + reimbursement.getEmployeeId() );*/
-
-                /*out.print("TicketNumber= " + reimbursement.getTicketNumber() + ", ExpenseDetail" + reimbursement.getExpenseDetail() +
-                        "Amount = " +  reimbursement.getAmount() + ", DateStart = " + reimbursement.getDateStart() + ", DateEnd = " + reimbursement.getDateEnd() +
-                        ", TicketStatus = " + reimbursement.getTicketStatus() + ", reimbursement.getEmployee().getName() = ");// + reimbursement.getEmployee().getName());*/
 
                 // get employee data from the database
                 Employee employee = daoEmployee.readById(reimbursement.getEmployeeId());
 
-                //if (reimbursement.getEmployeeId() == employees.get(i).getId()) {
                     out.println("<tr>\n" +
                             "<td>" + employee.getEmployeeId() + "</td>\n" +
                             "<td>" + employee.getName() + "</td>\n" +
                             "<td>" + employee.getUsername() + "</td>\n" +
-                            "<td>" + reimbursement.getAmount() + "</td>\n" +
+                            "<td>" + currencyFormat.format(reimbursement.getAmount()) + "</td>\n" +
                             "<td>" + reimbursement.getDateStart() + "</td>\n" +
                             "<td>" + reimbursement.getDateEnd() + "</td>\n" +
-                            "<td>" + reimbursement.getTicketStatus() + "</td>\n" + /*
+                            "<td>" + reimbursement.getTicketNumber() + "</td>\n" +
+                            "<td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" + /*
                             "<td><button onclick=\"getElementById('demo')\">Approve</button></td>\n" +
                             "<td><button onclick=\"getElementById('demo')\">Reject</button></td>\n" + */
                             "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("APPROVED") +
@@ -166,9 +149,8 @@ public class FinancialManagerServlet extends HttpServlet {
                             "&dateStart=" + reimbursement.getDateStart() +
                             "&dateEnd=" + reimbursement.getDateEnd()+
                             "\" style=\"color: blue\">" +
-                            "DELETE</a></td>\n" +
+                            "DENY</a></td>\n" +
                             "</tr>");
-                //}
             }
             out.println("</table>" +
                     "</div>" +

@@ -64,7 +64,10 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
         FinancialManager result = (FinancialManager)query.uniqueResult();
 
         boolean flag = false;
-        if(financialManager.getUsername().equals(result.getUsername()) && financialManager.getPassword().equals(result.getPassword())) {
+        if (result == null) {
+            flag = false;
+        }
+        else if(financialManager.getUsername().equals(result.getUsername()) && financialManager.getPassword().equals(result.getPassword())) {
             flag = true;
         }
 

@@ -74,7 +74,6 @@
     </servlet-mapping>
 
 
-
     <servlet>
         <servlet-name>UpdateStatusServlet</servlet-name>
         <servlet-class>UpdateStatusServlet</servlet-class>
@@ -95,7 +94,6 @@
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
 
-
     <servlet>
         <servlet-name>FinancialManagerViewAllServlet</servlet-name>
         <servlet-class>FinancialManagerViewAllServlet</servlet-class>
@@ -105,5 +103,17 @@
         <servlet-name>FinancialManagerViewAllServlet</servlet-name>
         <url-pattern>/FinancialManagerViewAllServlet</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ViewEmployeeListServlet</servlet-name>
+        <servlet-class>ViewEmployeeListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewEmployeeListServlet</servlet-name>
+        <url-pattern>/ViewEmployeeListServlet</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

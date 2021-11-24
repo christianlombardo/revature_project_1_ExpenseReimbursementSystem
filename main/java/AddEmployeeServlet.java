@@ -23,16 +23,21 @@ public class AddEmployeeServlet extends HttpServlet {
         String name = request.getParameter("fullname");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String gender = request.getParameter("gender");
 
         Employee employee = new Employee();
         //employee.setId(id);
         employee.setName(name);
         employee.setUsername(username);
         employee.setPassword(password);
+        employee.setGender(gender);
 
         employeeDao.insert(employee);
 
         out.println("<div class=\"container h-100\"><h1>Recorded saved successfully.</h1></div>");
+
+        //response.sendRedirect("FinancialManagerServlet");
+        response.sendRedirect("ViewEmployeeListServlet");
 
         //request.getRequestDispatcher("addemployee.html").include(request, response);
         //request.getRequestDispatcher("footer.html").include(request, response);

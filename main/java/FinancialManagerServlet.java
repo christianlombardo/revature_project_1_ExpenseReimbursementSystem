@@ -60,7 +60,7 @@ public class FinancialManagerServlet extends HttpServlet {
                     "<td>" + reimbursement.getAmount() + "</td>\n" +
                     "<td>" + reimbursement.getDateStart() + "</td>\n" +
                     "<td>" + reimbursement.getDateEnd() + "</td>\n" +
-                    "<td>" + reimbursement.getTicketStatus() + "</td>\n" +
+                    "<td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" +
                     "</tr>");
         }
         out.println("</table>" +
@@ -173,16 +173,6 @@ public class FinancialManagerServlet extends HttpServlet {
             request.setAttribute("message", message);
             request.getRequestDispatcher("/WEB-INF/LoginFailManager.jsp").forward(request, response);
             }
-
-
-            // get all Employees out in a LIST
-            // get all Reimbursement put in a LIST
-            //
-            List<Employee> employees = new ArrayList<>();
-            List<Reimbursement> reimbursements = new ArrayList<>();
-
-            //Employee employee = (Employee)httpSession.getAttribute("employee");
-
 
         }
 

@@ -116,4 +116,14 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>AddFinancialManagerServlet</servlet-name>
+        <servlet-class>AddFinancialManagerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddFinancialManagerServlet</servlet-name>
+        <url-pattern>/AddFinancialManagerServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

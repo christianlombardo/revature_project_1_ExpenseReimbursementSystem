@@ -13,6 +13,7 @@ public class FinancialManager {
     private String name;
     private String username;
     private String password;
+    private String gender;
 
     public FinancialManager() {}
 
@@ -21,11 +22,12 @@ public class FinancialManager {
         this.password = password;
     }
 
-    public FinancialManager(int id, String name, String username, String password) {
+    public FinancialManager(int id, String name, String username, String password, String gender) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
+        this.gender = gender;
     }
 
     public int getId() {
@@ -58,6 +60,14 @@ public class FinancialManager {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
 }

@@ -26,6 +26,20 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
 
     @Override
     public void insert(FinancialManager financialManager) {
+        // open the session
+        Session session = sessionFactory.openSession();
+
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        // hibernate save to the database
+        session.save(financialManager);
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
 
     }
 

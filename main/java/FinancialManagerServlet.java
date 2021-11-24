@@ -33,7 +33,7 @@ public class FinancialManagerServlet extends HttpServlet {
                         "<div class=\"wrapper container\"" +
                         "<div class=\"row g-3\">" +
                         "<div class=\"col-md-12\">" +
-                        "<h1>User Profile</h1>" +
+                        "<h1>Pending Reimbursements</h1>" +
                         "</div>" +
                         "<div class=\"col-md-12\">" +
                         "<table class=\"table table-bordered table-dark\">" +

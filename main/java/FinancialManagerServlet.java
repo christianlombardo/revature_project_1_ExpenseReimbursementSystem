@@ -30,13 +30,13 @@ public class FinancialManagerServlet extends HttpServlet {
         Iterator iterator = reimbursements.iterator();
         out.println(
                 "<style>body{background-color:#666699}</style>" +       
-                        "<div class=\"container\"" +
+                        "<div class=\"wrapper container\"" +
                         "<div class=\"row g-3\">" +
                         "<div class=\"col-md-12\">" +
                         "<h1>User Profile</h1>" +
                         "</div>" +
                         "<div class=\"col-md-12\">" +
-                        "<table class=\"table table-bordered table-dark table-responsive\">" +
+                        "<table class=\"table table-bordered table-dark\">" +
                         "<tr>\n" +
                         "<th>ID</th>\n" +
                         "<th>Name</th>\n" +
@@ -103,13 +103,13 @@ public class FinancialManagerServlet extends HttpServlet {
 
             out.println(
                     "<style>body{background-color:#666699}</style>" +
-                            "<div class=\"container\"" +
+                            "<div class=\"wrapper container\"" +
                             "<div class=\"row g-3\">" +
                             "<div class=\"col-md-12\">" +
                             "<h1>User Profile</h1>" +
                             "</div>" +
                             "<div class=\"col-md-12\">" +
-                            "<table class=\"table table-bordered table-dark table-responsive\">" +
+                            "<table class=\"table table-bordered table-dark \">" +
                                 "<tr>\n" +
                                 "<th>Employee Id</th>\n" +
                                 "<th>Employee Name</th>\n" +

@@ -22,41 +22,24 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <ul class="nav nav-tabs navbar-fixed-top sticky">
-
-                <form action="FinancialManagerServlet" method = "get">
-            <li class="nav-item">
-                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View pending reimbursements</button>
-            </li>
-                </form>
-            <form action="FinancialManagerViewAllServlet" method = "get">
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary btn-lg px-10" type="submit">View all past reimbursements</button>
-                </li>
-            </form>
-            <form action="AddEmployee.html" method = "post">
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add employee</button>
-                </li>
-            </form>
-            <form action="AddFinancialManager.html" method = "post">
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add financial manager</button>
-                </li>
-            </form>
-             <form action="ViewEmployeeListServlet" method = "Get">
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary btn-lg px-10" type="submit">View all employees</button>
-                </li>
-            </form>
-
-            <li class="nav-item">
-                <a class="nav-link" href="LogoutServlet">Logout</a>
-            </li>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="nav nav-tabs navbar-fixed-top sticky">
+      <li class="nav-item">
+        <a class="nav-link" href="EmployeeSubmitReimbursementServlet">Submit Reimbursement</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="EmployeeViewPendingRequestsServlet">View all pending reimbursements</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="EmployeeViewPastRequestServlet">View all past reimbursements</a>
+      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="LogoutServlet">Logout</a>
+        </li>
         </ul>
+        </div>
+    </div></div>
     </nav>
-
 <section class="vh-100">
     <form action="AddEmployeeServlet" method="post">
         <section class="vh-100 gradient-custom">

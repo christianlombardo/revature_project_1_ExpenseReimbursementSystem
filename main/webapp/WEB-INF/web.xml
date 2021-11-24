@@ -137,4 +137,15 @@
         <url-pattern>/ViewFinancialManagerListServlet</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>FinancialManagerLoginServlet</servlet-name>
+        <servlet-class>FinancialManagerLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FinancialManagerLoginServlet</servlet-name>
+        <url-pattern>/FinancialManagerLoginServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -15,45 +15,30 @@ public class UpdateStatusServlet extends HttpServlet {
 
         ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getReimbursementDao();
 
-        // request.getRequestDispatcher("header.html").include(request, response);
-        // request.getRequestDispatcher("header.html").include(request, response);
-
-        //int id = Integer.parseInt(request.getParameter("id"));
-        // http://localhost:8081/project1/UpdateStatusServlet?
-        // reimbursementId=46
-        // &status=1
-        // &expenseDetail=Another%20exciting%20trip
-        // &amount=333.0
-        // &dateStart=0184-05-11
-        // &dateEnd=0184-05-11
         int reimbursementId = Integer.parseInt(request.getParameter("reimbursementId"));
         int status = Integer.parseInt(request.getParameter("status"));
         String expenseDetail = request.getParameter("expenseDetail");
         double amount = Double.parseDouble(request.getParameter("amount"));
         int employeeId = Integer.parseInt(request.getParameter("employeeId"));
-        Date dateStart;
-        Date dateEnd;
+        String dateStart = request.getParameter("dateStart");
+        String dateEnd = request.getParameter("dateEnd");
         Reimbursement reimbursement = new Reimbursement();
-        try {
-            dateStart = java.text.DateFormat.getDateInstance().parse(request.getParameter("dateStart"));
-            dateEnd = java.text.DateFormat.getDateInstance().parse(request.getParameter("dateEnd"));
-            reimbursement.setDateStart(dateStart);
-            reimbursement.setDateEnd(dateEnd);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         reimbursement.setTicketNumber(reimbursementId);
         reimbursement.setExpenseDetail(expenseDetail);
         reimbursement.setTicketStatus(status);
         reimbursement.setAmount(amount);
         reimbursement.setEmployeeId(employeeId);
+        reimbursement.setDateStart(dateStart);
+        reimbursement.setDateEnd(dateEnd);
         daoReimbursement.update(reimbursement);
 
         out.println("<div class=\"container h-100\"><h1>Recorded updated successfully.</h1></div>");
 
-        //request.getRequestDispatcher("addemployee.html").include(request, response);
+        response.sendRedirect("FinancialManagerServlet");
+
         //request.getRequestDispatcher("footer.html").include(request, response);
 
     }
+
 }

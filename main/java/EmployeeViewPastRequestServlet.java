@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class EmployeeViewPastRequestServlet extends HttpServlet {
@@ -46,23 +47,23 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
         statuses.add(Reimbursement.hmap.get("APPROVED"));
         statuses.add(Reimbursement.hmap.get("DENIED"));
 
-        List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatuses(employee.getEmployeeId(), statuses);
+        List<Reimbursement> reimbursements = daoReimbursement.readByEmployeeTicketStatuses(employee.getEmployeeId(), statuses);
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 
-        /*java.util.Date dt = new java.util.Date();
-        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String currentTime = sdf.format(dt);*/
-
-        for (Reimbursement reimbursement : results) {
+        Iterator iterator = reimbursements.iterator();
+        while(iterator.hasNext()) {
+            Reimbursement reimbursement = (Reimbursement)iterator.next();
             httpSession.setAttribute("id", reimbursement.getTicketNumber());
             out.println("<tr>\n" +
                     "    <td>" + reimbursement.getTicketNumber()+ "</td>\n" +
                     "    <td>" + reimbursement.getExpenseDetail() + "</td>\n" +
                     "    <td>" + currencyFormat.format(reimbursement.getAmount())+ "</td>\n" +
-                    "    <td>" + dateFormat.format(reimbursement.getDateStart()) + "</td>\n" +
-                    "    <td>" + dateFormat.format(reimbursement.getDateEnd()) + "</td>\n" +
+//                    "    <td>" + dateFormat.format(reimbursement.getDateStart()) + "</td>\n" +
+//                    "    <td>" + dateFormat.format(reimbursement.getDateEnd()) + "</td>\n" +
+                    "    <td>" + reimbursement.getDateStart() + "</td>\n" +
+                    "    <td>" + reimbursement.getDateEnd() + "</td>\n" +
                     "    <td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" +
                     "</tr>" );
 
@@ -76,4 +77,3 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
     }
 
 }
-

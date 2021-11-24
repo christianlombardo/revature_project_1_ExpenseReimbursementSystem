@@ -115,7 +115,7 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
 
     }
 
-    public Employee getFinancialManagerByUsernamePassword(String username, String password) {
+    public FinancialManager getFinancialManagerByUsernamePassword(String username, String password) {
         // open the session
         Session session = sessionFactory.openSession();
 
@@ -126,7 +126,7 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
         Query query = session.createQuery(hql);
         query.setParameter("currusername", username);
         query.setParameter("currpassword", password);
-        Employee employee = (Employee)query.uniqueResult();
+        FinancialManager financialManager = (FinancialManager) query.uniqueResult();
 
         // commit the transaction
         t.commit();
@@ -134,7 +134,7 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
         // close the connection
         session.close();
 
-        return employee;
+        return financialManager;
     }
 
 

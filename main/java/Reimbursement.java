@@ -13,12 +13,12 @@ public class Reimbursement {
     private int ticketNumber; // database id
     private String expenseDetail;
     private double amount;
-    @Temporal(TemporalType.DATE)
-    private Date dateStart;
-    @Temporal(TemporalType.DATE)
-    private Date dateEnd;
-//    private String dateStart;
-//    private String dateEnd;
+//    @Temporal(TemporalType.DATE)
+//    private Date dateStart;
+//    @Temporal(TemporalType.DATE)
+//    private Date dateEnd;
+    private String dateStart;
+    private String dateEnd;
     private Integer ticketStatus;
     private int employeeId;
 
@@ -33,7 +33,7 @@ public class Reimbursement {
         hmapTicketStatus();
     }
 
-    Reimbursement(int ticketNumber, String expenseDetail, double amount, Date dateStart, Date dateEnd, Integer ticketStatus) {
+    Reimbursement(int ticketNumber, String expenseDetail, double amount, String dateStart, String dateEnd, Integer ticketStatus) {
         this.ticketNumber = ticketNumber;
         this.expenseDetail = expenseDetail;
         this.amount = amount;
@@ -67,19 +67,17 @@ public class Reimbursement {
         this.amount = amount;
     }
 
-    public Date getDateStart() {
+    public String getDateStart() {
         return dateStart;
     }
-
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
     }
-
-    public Date getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 
@@ -91,14 +89,6 @@ public class Reimbursement {
         this.ticketStatus = ticketStatus;
     }
 
-//    public int getEmployeeId() {
-//        return employeeId;
-//    }
-//
-//    public void setEmployeeId(int employeeId) {
-//        this.employeeId = employeeId;
-//    }
-
     public int getEmployeeId() {
         return employeeId;
     }
@@ -106,14 +96,6 @@ public class Reimbursement {
     public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
-
-//    public Employee getEmployee() {
-//        return employee;
-//    }
-
-//    public void setEmployee(Employee employee) {
-//        this.employee = employee;
-//    }
 
     public static String getStatusName(int statusNum) {
 

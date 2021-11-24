@@ -71,31 +71,13 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         request.getRequestDispatcher("test.html").include(request, response);
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-
-        //out.println("<h1>You are submitting a new reimbursement request..............</h1>");
 
         ReimbursementDao reimbursementDao = ReimbursementDaoFactory.getReimbursementDao();
 
-        out.println("<h1>request.getParameter(start))=" + request.getParameter("start") + "</h1>");
-        out.println("<h1>request.getParameter(end)=" + request.getParameter("end") + "</h1>");
-
-        //Date dateStart = new Date();
-//        out.println("<h1>request.getParameter(start))=" + request.getParameter("start") + "</h1>");
-//        out.println("<h1>request.getParameter(end)=" + request.getParameter("end") + "</h1>");
-
-
         String expenseDetail = request.getParameter("detail");
         double amount = Double.parseDouble(request.getParameter("amount"));
-        Date dateStart = new Date();
-        Date dateEnd = new Date();
-        try {
-            dateStart = dateFormat.parse(request.getParameter("start"));
-            dateEnd = dateFormat.parse(request.getParameter("end"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        String dateStart = request.getParameter("start");
+        String dateEnd = request.getParameter("end");
 
         HttpSession httpSession = request.getSession();
         Employee employee = (Employee) httpSession.getAttribute("employee");

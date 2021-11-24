@@ -22,6 +22,35 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="nav nav-tabs navbar-fixed-top sticky">
+
+        <form action="FinancialManagerServlet" method = "post">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View pending reimbursements</button>
+            </li>
+        </form>
+        <form action="FinancialManagerViewAllServlet" method = "get">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View all reimbursements</button>
+            </li>
+        </form>
+        <form action="AddEmployee.html" method = "post">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add employee</button>
+            </li>
+        </form>
+        <form action="AddFinancialManagerServlet" method = "post">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add financial manager</button>
+            </li>
+        </form>
+
+        <li class="nav-item">
+            <a class="nav-link" href="LogoutServlet">Logout</a>
+        </li>
+    </ul>
+</nav>
 
 <section class="vh-100">
     <form action="AddEmployeeServlet" method="post">

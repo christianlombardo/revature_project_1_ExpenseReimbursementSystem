@@ -88,6 +88,17 @@ public class FinancialManagerServlet extends HttpServlet {
             // display all Pending requests
             List<Reimbursement> reimbursements = daoReimbursement.readByTicketStatus(Reimbursement.hmap.get("PENDING"));
 
+            /*Employee employee2 = daoEmployee.readById(reimbursements.get(0).getEmployeeId());
+            out.println("<h1>EmployeeId=" + employee2.getEmployeeId() +
+                    "EmployeeName=" + employee2.getName() +
+                    "Employee Username=" + employee2.getUsername() +
+                    "TicketNumber=" + reimbursements.get(0).getTicketNumber() +
+                    ", ExpenseDetail" + reimbursements.get(0).getExpenseDetail() +
+                    ", Amount" + reimbursements.get(0).getAmount() +
+                    ", DateStart" + reimbursements.get(0).getDateStart() +
+                    ", DateEnd" + reimbursements.get(0).getDateEnd() +
+                    ", TicketSTatus" + Reimbursement.getStatusName(reimbursements.get(0).getTicketStatus()) + "</h1>");*/
+
             request.getRequestDispatcher("FinanceNavbar.html").include(request, response);
 
             out.println(

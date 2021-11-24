@@ -49,6 +49,14 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
 
         List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatuses(employee.getEmployeeId(), statuses);
 
+        out.println("<h1>TicketNumber=" + results.get(0).getTicketNumber() +
+                        ", ExpenseDetail" + results.get(0).getExpenseDetail() +
+                        ", Amount" + results.get(0).getAmount() +
+                        ", DateStart" + results.get(0).getDateStart() +
+                        ", DateEnd" + results.get(0).getDateEnd() +
+                        ", TicketSTatus" + Reimbursement.getStatusName(results.get(0).getTicketStatus()) + "</h1>");
+
+
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 

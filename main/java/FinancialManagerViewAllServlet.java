@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FinancialManagerViewAllServlet extends HttpServlet {
 
-        public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
 
@@ -72,7 +72,7 @@ public class FinancialManagerViewAllServlet extends HttpServlet {
                             out.println(
                                     "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("APPROVED") +
                                             "&expenseDetail=" + reimbursement.getExpenseDetail() +
-                                            "&amount=" + currencyFormat.format(reimbursement.getAmount()) +
+                                            "&amount=" + reimbursement.getAmount() +
                                             "&dateStart=" + reimbursement.getDateStart() +
                                             "&dateEnd=" + reimbursement.getDateEnd() +
 

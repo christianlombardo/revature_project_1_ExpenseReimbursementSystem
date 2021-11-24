@@ -18,11 +18,7 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         ReimbursementDao daoReimbursement = ReimbursementDaoFactory.getReimbursementDao();
-        EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
         request.getRequestDispatcher("test.html").include(request, response);
-
-        out.println("<h1></h1>");
-        out.println("<h1>1111111111111111</h1>");
 
         out.println(
                 "<style>body{background-color:grey}</style>" +
@@ -44,8 +40,6 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        out.println("<h1>2222222222222222</h1>");
-
         Employee employee = (Employee)httpSession.getAttribute("employee");
 
         List<Integer> statuses = new ArrayList<>();
@@ -53,22 +47,6 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
         statuses.add(Reimbursement.hmap.get("DENIED"));
 
         List<Reimbursement> results = daoReimbursement.readByEmployeeTicketStatuses(employee.getEmployeeId(), statuses);
-
-        out.println("<h1>EmployeeId = " + employee.getEmployeeId() + "</h1>" +
-                    "<h1>EmployeeName = " + employee.getName() + "</h1>" +
-                    "<h1>EmployeeUsername = " + employee.getUsername() + "</h1>" );
-
-        out.println("<h1>333333333333333333</h1>");
-
-        out.println("<h1>TicketNumber=" + results.get(1).getTicketNumber() +
-                        ", ExpenseDetail" + results.get(1).getExpenseDetail() +
-                        ", Amount" + results.get(1).getAmount() +
-                        ", DateStart" + results.get(1).getDateStart() +
-                        ", DateEnd" + results.get(1).getDateEnd() +
-                        ", TicketSTatus" + Reimbursement.getStatusName(results.get(1).getTicketStatus()) + "</h1>");
-
-        out.println("<h1>4444444444444444444</h1>");
-
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");

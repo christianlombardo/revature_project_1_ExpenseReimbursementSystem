@@ -23,7 +23,9 @@ public class EmployeeSubmitReimbursementServlet extends HttpServlet {
 
         // submit request to add in the reimbursement table in the database.
 
-        out.println("<section class='vh-100 gradient-custom'>" +
+        out.println(
+                    "<style>body{background-color: #666699}</style>" +
+                    "<section class='vh-100 gradient-custom'>" +
                 "<form action=\"EmployeeSubmitReimbursementServlet\" method=\"post\" > " +
                 "<div class='container py-5 h-100'>" +
                 "<div class='row d-flex justify-content-center align-items-center h-100'>" +

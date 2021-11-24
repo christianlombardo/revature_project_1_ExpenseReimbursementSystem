@@ -22,13 +22,13 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
 
         out.println(
                 "<style>body{background-color:grey}</style>" +
-                        "<div class=\"container\"" +
+                        "<div class=\"wrapper container\"" +
                         "<div class=\"row g-3\">" +
                         "<div class=\"col-md-12\">" +
                         "	<h1>Past Reimbursements</h1>" +
                         "</div>" +
                         "<div class=\"col-md-12\">" +
-                        "<table class=\"table table-bordered table-dark table-responsive\" style=\"font-family:Arial;\">" +
+                        "<table class=\"table table-bordered table-dark \">" +
                         "<tr>\n" +
                         "    <th>Ticket Number</th>\n" +
                         "    <th>Expense Detail</th>\n" +

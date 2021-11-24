@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <style>
+        body {
+           background-color: #666699;
+        }
+        a {
+            color: #000000;
+        }
+
+        .wrapper {
+            background -color: #fff;
+            padding:0 px;
+            box-sizing: border-box;
+            margin: auto;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="nav nav-tabs navbar-fixed-top sticky">
+
+        <form action="FinancialManagerServlet" method = "post">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View pending reimbursements</button>
+            </li>
+        </form>
+        <form action="FinancialManagerViewAllServlet" method = "get">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">View all reimbursements</button>
+            </li>
+        </form>
+        <form action="AddEmployee.html" method = "post">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add employee</button>
+            </li>
+        </form>
+        <form action="AddFinancialManagerServlet" method = "post">
+            <li class="nav-item">
+                <button class="btn btn-outline-primary btn-lg px-10" type="submit">Add financial manager</button>
+            </li>
+        </form>
+
+        <li class="nav-item">
+            <a class="nav-link" href="LogoutServlet">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+<section class="vh-100">
+    <form action="AddFinancialManagerServlet" method="post">
+        <section class="vh-100 gradient-custom">
+            <div class="container py-20 h-100">
+                <div class="row d-flex justify-content-left align-items-center h-100  w-1" >
+                    <div class="col-12 col-md-9 col-lg-5 col-xl-5">
+                        <div class="card bg-dark text-white " style="border-radius: 8rem; width: 245%; ">
+                            <div class="card-body p-20 text-center w-auto p-9">
+
+                                <div class="mb-md-5 mt-md-2 pb-5">
+                        <h1 class="mb-2 ">Add Financial Manager</h1>
+                        <div class="card-body" style="font-size:20px">
+
+                            <div class="row align-items-center pt-4 pb-3">
+
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0" style="font-size:20px">Full name</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input type="text" class="form-control form-control-lg" name="fullname" required />
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center py-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0" style="font-size:20px">Username</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input type="text" class="form-control form-control-lg" name="username" required />
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center pt-4 pb-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0" style="font-size:20px">Password</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input type="text" class="form-control form-control-lg" name="password" required />
+                                </div>
+                            </div>
+
+                            <!--<div class="d-md-flex justify-content-start align-items-center mb-4 py-2"> -->
+                            <div class="row align-items-center pt-4 pb-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0 me-4" style="font-size:20px">Gender: </h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="col-md-5 form-check form-check-inline mb-0 me-4">
+                                        <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="gender"
+                                                id="femaleGender"
+                                                value="female"
+                                        />
+                                        <label class="col-md-5 form-check-label" for="femaleGender" style="font-size:20px">Female</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline mb-0 me-4">
+                                        <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="gender"
+                                                id="maleGender"
+                                                value="male"
+                                        />
+                                        <label class="form-check-label" for="maleGender" style="font-size:20px">  Male</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="px-5 py-4">
+                                <!--<<div class="row align-items-center pt-4 pb-3">-->
+                                <button type="submit" class="btn btn-primary btn-block" style="font-size:18px">Save</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </form>
+</section>
+</body>
+</html>

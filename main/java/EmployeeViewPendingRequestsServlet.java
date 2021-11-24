@@ -21,13 +21,13 @@ public class EmployeeViewPendingRequestsServlet extends HttpServlet {
 
         out.println(
                         "<style>body{background-color:#666699}</style>" +
-                        "<div class=\"container\"" +
+                        "<div class=\"wrapper container container\"" +
                         "<div class=\"row g-3\">" +
                         "<div class=\"col-md-12\">" +
                         "	<h1>Pending Reimbursements</h1>" +
                         "</div>" +
                         "<div class=\"col-md-12\">" +
-                        "<table class=\"table table-bordered table-dark table-responsive\" style=\">" +
+                        "<table class=\"table table-bordered table-dark\">" +
                         "<tr>\n" +
                         "    <th>Ticket Number</th>\n" +
                         "    <th>Expense Detail</th>\n" +

@@ -21,7 +21,7 @@ public class EmployeeViewPastRequestServlet extends HttpServlet {
         request.getRequestDispatcher("test.html").include(request, response);
 
         out.println(
-                "<style>body{background-color: background-color: #666699;}</style>" +
+                "<style>body{background-color:gray;}</style>" +
                         "<div class=\"wrapper container\"" +
                         "<div class=\"row g-3\">" +
                         "<div class=\"col-md-12\">" +

@@ -34,9 +34,9 @@ public class AddFinancialManagerServlet extends HttpServlet {
         out.println("<div class=\"container h-100\"><h1>Recorded saved successfully.</h1></div>");
 
         //response.sendRedirect("FinancialManagerServlet");
-        response.sendRedirect("ViewEmployeeListServlet");
+        //response.sendRedirect("ViewEmployeeListServlet");
+        response.sendRedirect("ViewFinancialManagerListServlet");
 
-        //request.getRequestDispatcher("addemployee.html").include(request, response);
         //request.getRequestDispatcher("footer.html").include(request, response);
     }
 

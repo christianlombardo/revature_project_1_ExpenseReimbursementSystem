@@ -126,4 +126,15 @@
         <url-pattern>/AddFinancialManagerServlet</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>ViewFinancialManagerListServlet</servlet-name>
+        <servlet-class>ViewFinancialManagerListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewFinancialManagerListServlet</servlet-name>
+        <url-pattern>/ViewFinancialManagerListServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

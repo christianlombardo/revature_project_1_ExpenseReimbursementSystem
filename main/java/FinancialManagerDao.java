@@ -50,7 +50,24 @@ public class FinancialManagerDao implements DAO<FinancialManager> {
 
     @Override
     public List<FinancialManager> readAll() {
-        return null;
+
+        // open the session
+        Session session = sessionFactory.openSession();
+
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+
+        String hql = "FROM FinancialManager";
+        Query query = session.createQuery(hql);
+        List<FinancialManager> results = query.list();
+
+        // commit the transaction
+        t.commit();
+
+        // close the connection
+        session.close();
+
+        return results;
     }
 
     @Override

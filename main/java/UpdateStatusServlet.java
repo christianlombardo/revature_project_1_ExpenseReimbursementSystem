@@ -19,6 +19,13 @@ public class UpdateStatusServlet extends HttpServlet {
         // request.getRequestDispatcher("header.html").include(request, response);
 
         //int id = Integer.parseInt(request.getParameter("id"));
+        // http://localhost:8081/project1/UpdateStatusServlet?
+        // reimbursementId=46
+        // &status=1
+        // &expenseDetail=Another%20exciting%20trip
+        // &amount=333.0
+        // &dateStart=0184-05-11
+        // &dateEnd=0184-05-11
         int reimbursementId = Integer.parseInt(request.getParameter("reimbursementId"));
         int status = Integer.parseInt(request.getParameter("status"));
         String expenseDetail = request.getParameter("expenseDetail");

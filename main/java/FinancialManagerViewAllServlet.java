@@ -44,8 +44,6 @@ public class FinancialManagerViewAllServlet extends HttpServlet {
                             "<th>End Date</th>\n" +
                             "<th>Ticket Number</th>\n" +
                             "<th>Ticket Status</th>\n" +
-                            "<th>Approve</th>\n" +
-                            "<th>Reject</th>\n" +
                             "</tr>");
 
             NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
@@ -65,34 +63,9 @@ public class FinancialManagerViewAllServlet extends HttpServlet {
                         "<td>" + reimbursement.getDateStart() + "</td>\n" +
                         "<td>" + reimbursement.getDateEnd() + "</td>\n" +
                         "<td>" + reimbursement.getTicketNumber()+ "</td>\n" +
-                        "<td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" /*
-                            "<td><button onclick=\"getElementById('demo')\">Approve</button></td>\n" +
-                            "<td><button onclick=\"getElementById('demo')\">Reject</button></td>\n" + */);
-                        if (Reimbursement.getStatusName(reimbursement.getTicketStatus()) == "PENDING") {
-                            out.println(
-                                    "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("APPROVED") +
-                                            "&expenseDetail=" + reimbursement.getExpenseDetail() +
-                                            "&amount=" + reimbursement.getAmount() +
-                                            "&dateStart=" + reimbursement.getDateStart() +
-                                            "&dateEnd=" + reimbursement.getDateEnd() +
+                        "<td>" + Reimbursement.getStatusName(reimbursement.getTicketStatus()) + "</td>\n" +
+                        "</tr>");
 
-
-                                            "\" style=\"color: blue\">" +
-                                            "APPROVE</a></td>\n" +
-                                            "<td><a href=\"UpdateStatusServlet?reimbursementId=" + reimbursement.getTicketNumber() + "&status=" + Reimbursement.hmap.get("DENIED") +
-                                            "&expenseDetail=" + reimbursement.getExpenseDetail() +
-                                            "&amount=" + reimbursement.getAmount() +
-                                            "&dateStart=" + reimbursement.getDateStart() +
-                                            "&dateEnd=" + reimbursement.getDateEnd() +
-                                            "\" style=\"color: blue\">" +
-                                            "DELETE</a></td>\n" +
-                                            "</tr>");
-                        } else {
-                            out.println(
-                                    "<td></td>\n" +
-                                    "<td></td>\n" +
-                                    "</tr>");
-                        }
                 //}
             }
             out.println("</table>" +

@@ -114,11 +114,11 @@ public class ReimbursementDao implements DAO<Reimbursement>{
         // begin the transaction
         Transaction t = session.beginTransaction();
 
-        String hql = "FROM Reimbursement WHERE ticketStatus IN :currticketStatus AND employeeId=:curremployeeId";
+        String hql = "FROM Reimbursement WHERE employeeId=:curremployeeId AND ticketStatus IN :currticketStatus";
         Query query = session.createQuery(hql);
 
-        query.setParameter("currticketStatus", ticketStatus);
         query.setParameter("curremployeeId", employeeId);
+        query.setParameter("currticketStatus", ticketStatus);
 
         List<Reimbursement> results = query.list();
 

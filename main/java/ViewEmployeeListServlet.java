@@ -14,26 +14,25 @@ public class ViewEmployeeListServlet extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
+        request.getRequestDispatcher("FinanceNavbar.html").include(request, response);
         EmployeeDao employeeDao = EmployeeDaoFactory.getEmployeeDao();
 
         //request.getRequestDispatcher("header.html").include(request, response);
 
         List<Employee> results = employeeDao.readAll();
 
-        out.println("<div class=\"container\">" +
+        out.println("<div class=\"wrapper container\">" +
                 "<div class=\"row g-3\">" +
                 "<div class=\"col-md-12\">" +
                 "	<h1>User Profile</h1>" +
                 "</div>" +
                 "<div class=\"col-md-12\">" +
-                "<table class=\"table w-auto table-primary table-responsive\" style=\"font-family:Verdana;\">" +
+                "<table class=\"table table-bordered table-dark \">" +
                 "<tr>\n" +
                 "    <th>id</th>\n" +
                 "    <th>Name</th>\n" +
                 "    <th>Username</th>\n" +
                 "    <th>Gender</th>\n" +
-                "    <th></th>\n" +
                 "  </tr>");
 
         HttpSession httpSession = request.getSession();
@@ -44,18 +43,18 @@ public class ViewEmployeeListServlet extends HttpServlet {
                     "&name=" + employee.getName() + "&username=" + employee.getUsername() + "&gender=" + employee.getGender() +
                     "\" style=\"color: blue\">" + employee.getEmployeeId() + "</a></td>\n" +*/
                     "    <td>" + employee.getEmployeeId() + "</td>\n" +
-                    "    <td>" + employee.getName() + "</td>\n" +
-                    "    <td>" + employee.getUsername() + "</td>\n" +
-                    "    <td>" + employee.getGender() + "</td>\n" +
+                            "    <td>" + employee.getName() + "</td>\n" +
+                            "    <td>" + employee.getUsername() + "</td>\n" +
+                            "    <td>" + employee.getGender() + "</td>\n" +
                     /*"    <td><a href=\"DeleteEmployeeServlet?userid=" + employee.getEmployeeId() +
                     "&name=" + employee.getName() + "&username=" + employee.getUsername() + "&gender=" + employee.getGender() +
                     "\" style=\"color: blue\">" +
                     "delete</a></td>\n" +*/
-                    "</tr>" );
+                            "</tr>" );
         }
         out.println("</table>" +
-                        "</div>" +
-                        "</div></div>");
+                "</div>" +
+                "</div></div>");
 
         request.getRequestDispatcher("footer.html").include(request, response);
 
